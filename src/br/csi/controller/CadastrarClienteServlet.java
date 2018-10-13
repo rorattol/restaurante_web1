@@ -18,38 +18,33 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- *
  * @author Lucas
  */
 @WebServlet("/cadastrarUsuario")
 public class CadastrarClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    
+
         String nome = req.getParameter("nome");
         String senha = req.getParameter("senha");
         String email = req.getParameter("email");
         String telefone = req.getParameter("telefone");
-        
+
         Cliente cli = new Cliente();
-        
+
         boolean retorno = new ClienteDAO().create(nome, email, senha, telefone);
-        
+
         PrintWriter resposta = resp.getWriter();
-        if(retorno){
+        if (retorno) {
 
             //DIRECIONAR PARA LISTAR MESAS
             RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
             disp.forward(req, resp);
-            
-        }
-        
-        else{
+
+        } else {
             resposta.println("<html><body>");
             resposta.println("<strong>ERRO</strong>");
             resposta.println("</body></html>");
-            
-            
         }
     }
 }

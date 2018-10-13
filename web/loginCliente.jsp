@@ -34,7 +34,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item"> 
-                            <a class="nav-link text-primary" href="#">Area Restrita</a> 
+                            <a class="nav-link text-primary" href="loginFunc.jsp">Area Restrita</a>
                         </li>
                     </ul>
                 </div>
@@ -52,10 +52,11 @@
                             <div class="form-group mb-3"> 
                                 <input type="password" class="form-control" placeholder="Password" name="senha"> 
                                 <small class="form-text text-muted text-right"></small> 
-                            </div> 
+                            </div>
+                            <a href="CadastrarCliente.jsp">Ainda não é cadastrado?</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
-                        
+
                         <c:if test="${not empty mensagem}">
                             <h3><strong style="color:red">${mensagem}</strong></h3>
                         </c:if>
