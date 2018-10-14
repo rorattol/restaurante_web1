@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -35,13 +36,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="">Heading</h1>
+                        <h1 class="">Card√°pio</h1>
                     </div>
                 </div>
             </div>
         </div>
         <div class="py-5" style="">
             <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item" >
+                                <a class="nav-link" href="reservarMesa.jsp" data-toggle="pill" data-target="#tabtwo">Reservar mesa</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <jsp:useBean id="pratoDAO" class="br.csi.dao.PratoDAO"></jsp:useBean>
                 <div class="row">
                     <div class="col-md-12">
@@ -50,8 +60,8 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Categoria</th>
-                                    <th>DescriÁ„o</th>
-                                    <th>PreÁo</th>
+                                    <th>Descri√ß√£o</th>
+                                    <th>Pre√ßo</th>
                                 </tr>
                             </thead>
 

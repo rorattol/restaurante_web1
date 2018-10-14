@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
 * create table mesa(
@@ -100,5 +101,29 @@ public class MesaDAO {
         }
         return retorno;
     }//PRONTO
+
+    public ArrayList<Mesa> getMesas() {
+
+        ArrayList<Mesa> mesas = new ArrayList<Mesa>();
+
+        try (Connection conn = new ConectaDB_postgres().getConexao()) {
+            sql = "select * from mesa;";
+            pre = conn.prepareStatement(sql);
+            rs = pre.executeQuery();
+            while (rs.next()) {
+                Mesa m = new Mesa();
+
+                m.setLugares(rs.getInt("lugares_mesa"));
+                m.setNumMesa(rs.getInt("num_mesa"));
+                m.setReservado(rs.getBoolean("reservado_mesa"));
+                m.setId(rs.getInt("id_mesa"));
+
+                mesas.add(m);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return mesas;
+    }
 
 }

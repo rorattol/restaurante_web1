@@ -33,9 +33,9 @@ public class LoginServletCliente extends HttpServlet{
         String senha = req.getParameter("senha");
         
         System.out.println(login + " - "+ senha);
-        
+
         boolean autenticado = new LoginDAO().autenticarCliente(login, senha);
-        
+
         RequestDispatcher disp;
         
         if(autenticado){
