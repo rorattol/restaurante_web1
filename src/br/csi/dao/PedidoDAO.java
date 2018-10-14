@@ -24,17 +24,22 @@ import java.sql.Statement;
  * @author Lucas
  */
 public class PedidoDAO {
-    
-    public int create(int idMesa, int idPrato, String observacao) {
+
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
+    public boolean create(int idMesa, int idPrato, String observacao) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "INSERT INTO pedido (id_mesa, id_prato, observacao_pedido, data_hora) VALUES (?, ?, ?, current_date);";
-            PreparedStatement pre = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            sql = "INSERT INTO pedido (id_mesa, id_prato, observacao_pedido, data_hora) VALUES (?, ?, ?, current_date);";
+            pre = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pre.setInt(1, idMesa);
             pre.setInt(2, idPrato);
             pre.setString(3, observacao);
             pre.execute();
-            ResultSet rs = pre.getGeneratedKeys();
+            rs = pre.getGeneratedKeys();
             rs.next();
 
 //            if (rs.getInt(1) > 0) {
@@ -50,16 +55,16 @@ public class PedidoDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return 0;
+        return retorno;
     }
 
     public Pedido read(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM pedido WHERE id_pedido = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM pedido WHERE id_pedido = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Pedido p = new Pedido();
            //     p.setMesaReservada(rs.getInt("id_mesa"));
@@ -77,35 +82,35 @@ public class PedidoDAO {
     public boolean update(Pedido pedido) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "UPDATE pedido SET id_mesa = ?, id_prato = ? , observacao_pedido, = ? WHERE id_pedido = ?;";
+            sql = "UPDATE pedido SET id_mesa = ?, id_prato = ? , observacao_pedido, = ? WHERE id_pedido = ?;";
 
-            PreparedStatement pre = conn.prepareStatement(sql);
+            pre = conn.prepareStatement(sql);
   //          pre.setString(1, pedido.getMesaReservada());
 //            pre.setString(2, pedido.getPratosReservados());
             pre.setString(3, pedido.getObservacao());
             pre.setInt(4, pedido.getId());
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return false;
+        return retorno;
     }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
-            String sql = "DELETE FROM peiddo WHERE id_pedido = ?";
+            sql = "DELETE FROM peiddo WHERE id_pedido = ?";
             PreparedStatement pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }//PRONTO
     
 }

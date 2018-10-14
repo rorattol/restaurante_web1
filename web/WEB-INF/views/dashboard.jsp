@@ -21,7 +21,8 @@
     <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+      <div class="collapse navbar-collapse" id="navbar6">
+          <a class="navbar-brand text-primary d-none d-md-block" href="../../index.jsp">
           <i class="fa d-inline fa-lg fa-circle"></i>
           <b> Sistema de reserva de restaurante</b>
         </a>
@@ -31,8 +32,8 @@
           <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
         </ul>
         <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="#">Log in</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="#">Area Restrita</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="../../loginCliente.jsp">Log in</a> </li>
+          <li class="nav-item"> <a class="nav-link text-primary" href="../../loginFunc.jsp">Area Restrita</a> </li>
         </ul>
       </div>
     </div>

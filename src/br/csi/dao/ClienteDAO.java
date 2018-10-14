@@ -24,31 +24,36 @@ primary key (id_cliente));
  */
 public class ClienteDAO {
 
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
     public boolean create(String nome, String email, String senha, String telefone) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "INSERT INTO cliente(nom_cliente, email_cliente, senha_cliente, tel_cliente) VALUES (?, ?, ?, ?);";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "INSERT INTO cliente(nom_cliente, email_cliente, senha_cliente, tel_cliente) VALUES (?, ?, ?, ?);";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, nome);
             pre.setString(2, email);
             pre.setString(3, senha);
             pre.setString(4, telefone);
             pre.execute();
             
-            return true;
+            retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
 
     public Cliente read(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM cliente WHERE id_cliente = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM cliente WHERE id_cliente = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
                 c.setNomeCliente(rs.getString("nome"));
@@ -67,11 +72,11 @@ public class ClienteDAO {
     public Cliente read(String email, String senha) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM cliente WHERE email_cliente = ? and senha_cliente = ?;";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM cliente WHERE email_cliente = ? and senha_cliente = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, email);
             pre.setString(2, senha);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
                 c.setNomeCliente(rs.getString("nome"));
@@ -88,36 +93,36 @@ public class ClienteDAO {
     public boolean update(Cliente cliente) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "UPDATE cliente SET nom_cliente = ?, email_cliente = ?, senha_cliente = ?, tel_cliente = ? WHERE id_cliente = ?;";
+            sql = "UPDATE cliente SET nom_cliente = ?, email_cliente = ?, senha_cliente = ?, tel_cliente = ? WHERE id_cliente = ?;";
 
-            PreparedStatement pre = conn.prepareStatement(sql);
+            pre = conn.prepareStatement(sql);
             pre.setString(1, cliente.getNomeCliente());
             pre.setString(2, cliente.getEmailCliente());
             pre.setString(3, cliente.getSenhaCliente());
             pre.setString(4, cliente.getTelefoneCliente());
             pre.setInt(5, cliente.getId());
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return false;
+        return retorno;
     }//PRONTO
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
-            String sql = "DELETE FROM cliente WHERE id_cliente = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "DELETE FROM cliente WHERE id_cliente = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }//PRONTO
 
     public ArrayList<Cliente> getClientes() {
@@ -126,7 +131,7 @@ public class ClienteDAO {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM cliente");
+            rs = stmt.executeQuery("SELECT * FROM cliente");
 
             while (rs.next()) {
 

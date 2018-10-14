@@ -19,29 +19,34 @@ import java.sql.SQLException;
  * @author Lucas
  */
 public class IngredienteDAO {
-    
+
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
     public boolean create(String ingrediente){
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "INSERT INTO ingrediente (nom_ingrediente) VALUES (? );";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "INSERT INTO ingrediente (nom_ingrediente) VALUES (? );";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, ingrediente);
             pre.execute();
             
-            return true;
+            retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
     
     public Ingrediente read(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM ingrediente WHERE id_ingrediente = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM ingrediente WHERE id_ingrediente = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Ingrediente ing = new Ingrediente();
                 ing.setIngrediente(rs.getString("nom_ingrediente"));
@@ -56,33 +61,32 @@ public class IngredienteDAO {
     public boolean update(Ingrediente ingrediente) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "UPDATE ingrediente SET nom_ingrediente = ? WHERE id_ingrediente = ?;";
-
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "UPDATE ingrediente SET nom_ingrediente = ? WHERE id_ingrediente = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, ingrediente.getIngrediente());
             pre.setInt(5, ingrediente.getId());
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return false;
+        return retorno;
     }//PRONTO
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
-            String sql = "DELETE FROM ingrediente WHERE id_ingrediente = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "DELETE FROM ingrediente WHERE id_ingrediente = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         }
         catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }//PRONTO
 }

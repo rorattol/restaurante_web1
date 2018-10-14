@@ -25,15 +25,12 @@ import java.util.ArrayList;
  * @author Lucas
  */
 public class PratoDAO {
-    
-    
+
     private String sql = "";
     private PreparedStatement pre;
     private ResultSet rs;
     boolean retorno = false;
-   
-    
-  
+
     public boolean create(Prato prato) {
 
         try (Connection conn = new ConectaDB_postgres().getConexao()) {

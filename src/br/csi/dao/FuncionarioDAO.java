@@ -22,30 +22,35 @@ import java.sql.SQLException;
  */
 public class FuncionarioDAO {
 
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
     public boolean create(String nomeFunc, String emailFunc, String senhaFunc) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "INSERT INTO funcionario(nom_func, email_func, senha_func) VALUES (?, ?, ?);";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "INSERT INTO funcionario(nom_func, email_func, senha_func) VALUES (?, ?, ?);";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, nomeFunc);
             pre.setString(2, emailFunc);
             pre.setString(3, senhaFunc);
             pre.execute();
             
-            return true;
+            retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
 
     public Funcionario read(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM funcionario WHERE id_func = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM funcionario WHERE id_func = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Funcionario f = new Funcionario();
                 f.setNomeFunc(rs.getString("nome_func"));
@@ -63,11 +68,11 @@ public class FuncionarioDAO {
     public Funcionario read(String email, String senha) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM funcionario WHERE email_func = ? and senha_func = ?;";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM funcionario WHERE email_func = ? and senha_func = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, email);
             pre.setString(2, senha);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Funcionario f = new Funcionario();
                 f.setNomeFunc(rs.getString("nome"));
@@ -84,35 +89,34 @@ public class FuncionarioDAO {
     public boolean update(Funcionario funcionario) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "UPDATE funcionario SET nom_func = ?, email_func = ?, senha_func = ? WHERE id_func = ?;";
-
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "UPDATE funcionario SET nom_func = ?, email_func = ?, senha_func = ? WHERE id_func = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, funcionario.getNomeFunc());
             pre.setString(2, funcionario.getEmailFunc());
             pre.setString(3, funcionario.getSenhaFunc());
             pre.setInt(5, funcionario.getId());
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return false;
+        return retorno;
     }//PRONTO
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
-            String sql = "DELETE FROM funcionario WHERE id_func = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "DELETE FROM funcionario WHERE id_func = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }//PRONTO
 
 }

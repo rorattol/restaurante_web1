@@ -22,33 +22,38 @@ import java.sql.SQLException;
 * @author Lucas
 **/
 public class MesaDAO {
-    
+
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
     public boolean create(int num_mesa, int qtdLugares) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "INSERT INTO mesa (num_mesa, lugares_mesa, reservado_mesa) VALUES (?, ?, ?);";
-            PreparedStatement pre =  conn.prepareStatement(sql);
+            sql = "INSERT INTO mesa (num_mesa, lugares_mesa, reservado_mesa) VALUES (?, ?, ?);";
+            pre =  conn.prepareStatement(sql);
             pre.setInt(1, num_mesa);
             pre.setInt(2, qtdLugares);
             pre.setBoolean(3, false);
             pre.executeUpdate();
 
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
 
     public Mesa read(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM mesa WHERE id_mesa = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM mesa WHERE id_mesa = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
                 Mesa m = new Mesa();
                 m.setNumMesa(rs.getInt("num_mesa"));
@@ -65,35 +70,35 @@ public class MesaDAO {
     public boolean update(Mesa mesa) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "UPDATE mesa SET num_mesa = ?, lugares_mesa = ?, reservado_mesa = ? WHERE id_mesa = ?;";
+            sql = "UPDATE mesa SET num_mesa = ?, lugares_mesa = ?, reservado_mesa = ? WHERE id_mesa = ?;";
 
-            PreparedStatement pre = conn.prepareStatement(sql);
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, mesa.getNumMesa());
             pre.setInt(2, mesa.getLugares());
             pre.setBoolean(3, mesa.isReservado());
             pre.setInt(4, mesa.getId());
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
-        return false;
+        return retorno;
     }//PRONTO
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
-            String sql = "DELETE FROM mesa WHERE id_mesa = ?";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "DELETE FROM mesa WHERE id_mesa = ?";
+            pre = conn.prepareStatement(sql);
             pre.setInt(1, id);
             if (pre.executeUpdate() > 0) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }//PRONTO
 
 }

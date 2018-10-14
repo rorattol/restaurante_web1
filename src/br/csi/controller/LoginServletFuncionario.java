@@ -35,10 +35,8 @@ public class LoginServletFuncionario extends HttpServlet{
         System.out.println(login + " - "+ senha);
         
         boolean autenticado = new LoginDAO().autenticarFuncionario(login, senha);
-    //    boolean autenticadoF = new LoginDAO().autenticarFuncionario(login, senha);
-        
-        
-        
+
+
         RequestDispatcher disp;
         
         if(autenticado){

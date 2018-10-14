@@ -16,40 +16,47 @@ import java.sql.SQLException;
  */
 public class LoginDAO {
 
+    String sql = "";
+    PreparedStatement pre;
+    ResultSet rs;
+    boolean retorno = false;
+
     public boolean autenticarCliente(String login, String senha) {
+
+
 
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM cliente WHERE senha_cliente = ? and email_cliente = ?;";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM cliente WHERE senha_cliente = ? and email_cliente = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, senha);
             pre.setString(2, login);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
     
     public boolean autenticarFuncionario(String login, String senha) {
 
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
-            String sql = "SELECT * FROM funcionario WHERE senha_func= ? and email_func = ?;";
-            PreparedStatement pre = conn.prepareStatement(sql);
+            sql = "SELECT * FROM funcionario WHERE senha_func= ? and email_func = ?;";
+            pre = conn.prepareStatement(sql);
             pre.setString(1, senha);
             pre.setString(2, login);
-            ResultSet rs = pre.executeQuery();
+            rs = pre.executeQuery();
             while (rs.next()) {
-                return true;
+                retorno = true;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return retorno;
     }
     
 }
