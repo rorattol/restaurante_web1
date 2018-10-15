@@ -36,20 +36,17 @@ public class CadastrarMesaServlet extends HttpServlet {
         boolean retorno = new MesaDAO().create(numero, lugares);
         
         PrintWriter resposta = resp.getWriter();
-        if(retorno){
+        RequestDispatcher disp;
 
+        if(retorno) {
             //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
+            disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
             disp.forward(req, resp);
-            
         }
-        
         else{
             resposta.println("<html><body>");
             resposta.println("<strong>ERRO</strong>");
             resposta.println("</body></html>");
-            
-            
         }
     }
     
