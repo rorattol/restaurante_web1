@@ -43,7 +43,7 @@ public class LoginServletCliente extends HttpServlet{
             HttpSession sessao = req.getSession();
             sessao.setAttribute("usuarioLogado", new ClienteDAO().read(login, senha));
             
-            disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
+            disp = req.getRequestDispatcher("reservarMesa.jsp");
             disp.forward(req, resp);
         }
         else{

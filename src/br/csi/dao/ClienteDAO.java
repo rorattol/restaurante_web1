@@ -79,9 +79,9 @@ public class ClienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
-                c.setNomeCliente(rs.getString("nome"));
-                c.setEmailCliente(rs.getString("email"));
-                c.setSenhaCliente(rs.getString("senha"));
+                c.setNomeCliente(rs.getString("nom_cliente"));
+                c.setEmailCliente(rs.getString("email_cliente"));
+                c.setSenhaCliente(rs.getString("senha_cliente"));
                 return c;
             }
         } catch (SQLException ex) {

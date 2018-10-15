@@ -6,18 +6,21 @@
 package br.csi.dao;
 
 import br.csi.model.Funcionario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
-* create table funcionario(
-* id_func serial,
-* nom_func varchar(75),
-* senha_func varchar(20),
-* email_func varchar(50),
-* primary key(id_func));
+ * create table funcionario(
+ * id_func serial,
+ * nom_func varchar(75),
+ * senha_func varchar(20),
+ * email_func varchar(50),
+ * primary key(id_func));
+ *
  * @author Lucas
  */
 public class FuncionarioDAO {
@@ -36,7 +39,7 @@ public class FuncionarioDAO {
             pre.setString(2, emailFunc);
             pre.setString(3, senhaFunc);
             pre.execute();
-            
+
             retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -64,7 +67,7 @@ public class FuncionarioDAO {
         return null;
     }
 
-      
+
     public Funcionario read(String email, String senha) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
@@ -85,7 +88,7 @@ public class FuncionarioDAO {
         }
         return null;
     }
-    
+
     public boolean update(Funcionario funcionario) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
@@ -119,4 +122,26 @@ public class FuncionarioDAO {
         return retorno;
     }//PRONTO
 
+    public ArrayList<Funcionario> getFuncionarios() {
+
+        ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+
+        try (Connection conn = new ConectaDB_postgres().getConexao()) {
+            sql = "select * from funcionario;";
+            pre = conn.prepareStatement(sql);
+            rs = pre.executeQuery();
+            while (rs.next()) {
+                Funcionario f = new Funcionario();
+
+                f.setId(rs.getInt("id_func"));
+                f.setNomeFunc(rs.getString("nome_func"));
+                f.setSenhaFunc(rs.getString("senha_func"));
+                f.setEmailFunc(rs.getString("email_func"));
+                funcionarios.add(f);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return funcionarios;
+    }
 }

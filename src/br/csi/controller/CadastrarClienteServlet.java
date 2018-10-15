@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 /**
  * @author Lucas
  */
-@WebServlet("/cadastrarUsuario")
+@WebServlet(urlPatterns = "/cadastrarUsuario")
 public class CadastrarClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

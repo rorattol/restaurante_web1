@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Lucas
  */
 
-@WebServlet("/listarCardapio")
+@WebServlet(urlPatterns = "/listarCardapio")
 public class ListarPratosServlet extends HttpServlet {
     
     @Override

@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * create table ingrediente(
@@ -89,4 +90,26 @@ public class IngredienteDAO {
         }
         return retorno;
     }//PRONTO
+
+    public ArrayList<Ingrediente> getIngredientes() {
+
+        ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
+
+        try (Connection conn = new ConectaDB_postgres().getConexao()) {
+            sql = "select * from ingrediente;";
+            pre = conn.prepareStatement(sql);
+            rs = pre.executeQuery();
+            while (rs.next()) {
+                Ingrediente ing = new Ingrediente();
+
+                ing.setId(rs.getInt("id_ingrediente"));
+                ing.setIngrediente(rs.getString("nom_ingrediente"));
+
+                ingredientes.add(ing);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return ingredientes;
+    }
 }

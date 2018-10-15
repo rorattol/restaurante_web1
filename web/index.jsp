@@ -43,15 +43,6 @@
         </div>
         <div class="py-5" style="">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item" >
-                                <a class="nav-link" href="reservarMesa.jsp" data-toggle="pill" data-target="#tabtwo">Reservar mesa</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <jsp:useBean id="pratoDAO" class="br.csi.dao.PratoDAO"></jsp:useBean>
                 <div class="row">
                     <div class="col-md-12">

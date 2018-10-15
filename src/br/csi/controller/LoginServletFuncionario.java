@@ -42,7 +42,7 @@ public class LoginServletFuncionario extends HttpServlet{
         if(autenticado){
             
             HttpSession sessao = req.getSession();
-            sessao.setAttribute("usuarioLogado", new FuncionarioDAO().read(login, senha));
+            sessao.setAttribute("FuncionarioLogado", new FuncionarioDAO().read(login, senha));
             
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);

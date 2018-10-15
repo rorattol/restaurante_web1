@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Lucas
  */
-@WebServlet("/cadastrarFuncionario")
+@WebServlet(urlPatterns = "/cadastrarFuncionario")
 public class CadastrarFuncionarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

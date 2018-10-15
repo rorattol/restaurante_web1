@@ -78,6 +78,7 @@ public class MesaDAO {
             pre.setInt(2, mesa.getLugares());
             pre.setBoolean(3, mesa.isReservado());
             pre.setInt(4, mesa.getId());
+            pre.executeUpdate();
             if (pre.executeUpdate() > 0) {
                 retorno = true;
             }

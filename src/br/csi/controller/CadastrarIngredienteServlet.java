@@ -22,7 +22,7 @@ import java.io.PrintWriter;
  * @author Lucas
  */
 
-@WebServlet("/cadastrarIngrediente")
+@WebServlet(urlPatterns = "/cadastrarIngrediente")
 public class CadastrarIngredienteServlet extends HttpServlet{
     
     @Override

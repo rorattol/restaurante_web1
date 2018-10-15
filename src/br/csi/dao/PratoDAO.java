@@ -146,5 +146,4 @@ public class PratoDAO {
         return pratos;
     }
     
-    
 }
