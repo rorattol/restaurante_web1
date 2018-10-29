@@ -67,7 +67,6 @@ public class FuncionarioDAO {
         return null;
     }
 
-
     public Funcionario read(String email, String senha) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
@@ -134,7 +133,7 @@ public class FuncionarioDAO {
                 Funcionario f = new Funcionario();
 
                 f.setId(rs.getInt("id_func"));
-                f.setNomeFunc(rs.getString("nome_func"));
+                f.setNomeFunc(rs.getString("nom_func"));
                 f.setSenhaFunc(rs.getString("senha_func"));
                 f.setEmailFunc(rs.getString("email_func"));
                 funcionarios.add(f);
