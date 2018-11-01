@@ -44,7 +44,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="">Bem vindo</h1>
+                            <h1 class="">Bem-vindo</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -58,14 +58,14 @@
                             <a href="#" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nome</th>
-                                    <th>Categoria</th>
-                                    <th>Descrição</th>
-                                    <th>Preço</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome</th>
+                                        <th>Categoria</th>
+                                        <th>Descrição</th>
+                                        <th>Preço</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
 
                                 <c:forEach var="prato" items="${pratoDAO.pratos}">
@@ -76,8 +76,8 @@
                                         <td>${prato.descricaoPrato}</td>
                                         <td>${prato.precoPrato}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">delete</a>
-                                            <a href="#" class="btn btn-info" role="button">Edit</a>
+                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <a href="/editPrato/id=" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -85,17 +85,17 @@
                             <hr>
 
                             <h2>Mesa</h2>
-                            <a href="#" class="btn btn-primary" role="button">add</a>
+                            <a href="#" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Número mesa</th>
-                                    <th>Número Lugares</th>
-                                    <th>Reservado</th>
-                                    <th>Ações</th>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Número mesa</th>
+                                        <th>Número Lugares</th>
+                                        <th>Reservado</th>
+                                        <th>Ações</th>
 
-                                </tr>
+                                    </tr>
                                 </thead>
 
                                 <c:forEach var="mesa" items="${mesaDAO.mesas}">
@@ -112,7 +112,7 @@
                                             </td>
                                         </c:if>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">delete</a>
+                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="#" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
@@ -121,14 +121,14 @@
                             <hr>
 
                             <h2>Ingrediente</h2>
-                            <a href="#" class="btn btn-primary" role="button">add</a>
+                            <a href="#" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nome Ingrediente</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome Ingrediente</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
 
                                 <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
@@ -136,7 +136,7 @@
                                         <td>${ing.id}</td>
                                         <td>${ing.ingrediente}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">delete</a>
+                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="#" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
@@ -145,15 +145,15 @@
                             <hr>
 
                             <h2>Funcionario</h2>
-                            <a href="#" class="btn btn-primary" role="button">add</a>
+                            <a href="#" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nome Funcionario</th>
-                                    <th>Email</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome Funcionario</th>
+                                        <th>Email</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
 
                                 <c:forEach var="func" items="${funcionarioDAO.funcionarios}">
@@ -162,7 +162,7 @@
                                         <td>${func.nomeFunc}</td>
                                         <td>${func.emailFunc}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">delete</a>
+                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="#" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
@@ -171,16 +171,16 @@
                             <hr>
 
                             <h2>Cliente</h2>
-                            <a href="#" class="btn btn-primary" role="button">add</a>
+                            <a href="#" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Nome Cliente</th>
-                                    <th>Email</th>
-                                    <th>Telefone</th>
-                                    <th>Ações</th>
-                                </tr>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome Cliente</th>
+                                        <th>Email</th>
+                                        <th>Telefone</th>
+                                        <th>Ações</th>
+                                    </tr>
                                 </thead>
 
                                 <c:forEach var="usuario" items="${usuarioDAO.clientes}">
@@ -190,7 +190,7 @@
                                         <td>${usuario.emailCliente}</td>
                                         <td>${usuario.telefoneCliente}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">delete</a>
+                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="#" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>

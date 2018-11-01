@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,8 +13,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div>Operacao Realizada com sucesso com JSP</div>
+        <div>Formulario</div>
         <h2>${nome_usuario}</h2>
+
+        <c:if>
+            <c:import url="colocar html do form"></c:import>
+        </c:if>
+
+
+
+
         
         <h2>OFERECER OPÇÃO DE RESERVAR MESA</h2>
     </body>

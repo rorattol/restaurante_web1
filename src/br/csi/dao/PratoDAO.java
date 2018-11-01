@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package br.csi.dao;
 
 import br.csi.model.Ingrediente;
@@ -22,7 +18,8 @@ import java.util.ArrayList;
  * descricao_prato varchar(100),
  * preco_prato float,
  * primary key (id_prato));
- * @author Lucas
+ *
+ * @author Lucas Roratto
  */
 public class PratoDAO {
 
@@ -105,7 +102,7 @@ public class PratoDAO {
         }
 
         return retorno;
-    }//PRONTO
+    }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
@@ -119,7 +116,7 @@ public class PratoDAO {
             ex.printStackTrace();
         }
         return retorno;
-    }//PRONTO
+    }
     
     public ArrayList<Prato> getPratos() {
         
@@ -145,5 +142,5 @@ public class PratoDAO {
         }
         return pratos;
     }
-    
+
 }

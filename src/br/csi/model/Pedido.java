@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Lucas
+ * @author Lucas Roratto
  */
 public class Pedido {
     
