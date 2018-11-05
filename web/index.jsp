@@ -16,6 +16,7 @@
                 <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
                         <i class="fa d-inline fa-lg fa-circle"></i>
                         <b> Sistema de reserva de restaurante</b>
+                    <a href="teste.jsp">teste AQUI</a>
                     </a>
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>

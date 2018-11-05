@@ -39,24 +39,57 @@
             </nav>
             <div class="row" >
                 <div class="mx-auto col-lg-6 col-10">
-                    <h1>Editar Cliente</h1>
+                    <h1>Editar/Add Cliente</h1>
                     <p class="mb-3">
                         When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
                     </p>
-                    <form class="text-left">
+                    <jsp:useBean id="cliente" class="br.csi.dao.ClienteDAO"></jsp:useBean>
+                    <form class="text-left" method="post" action="<c:choose><c:when test="${cliente != null}">updateCliente</c:when><c:otherwise></c:otherwise>cadastrarUsuario</c:choose>">
                         <div class="form-group">
                             <label for="form16">Nome do Cliente</label>
-                            <input type="text" class="form-control" id="form16">
+                            <c:choose>
+                                <c:when test="${cliente != null }">
+                                    <input type="text" class="form-control" id="form16" value="${cliente.nomeCliente}">
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="text" class="form-control" id="form16" value="Inserir Nome do Cliente">
+                                </c:otherwise>
+                            </c:choose>
+                            <!--<input type="text" class="form-control" id="form16" value=>-->
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Cliente</label>
-                            <input type="text" class="form-control" id="form17">
+                            <c:choose>
+                                <c:when test="${cliente != null }">
+                                    <input type="email" class="form-control" id="form17" value="${cliente.emailCliente}">
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="email" class="form-control" id="form17" value="Inserir Email do Cliente">
+                                </c:otherwise>
+                            </c:choose>
+                            <!--<input type="email" class="form-control" id="form17">-->
                         </div>
                         <div class="form-group">
                             <label for="form18">Telefone do Cliente</label>
-                            <input type="email" class="form-control" id="form18">
+                            <c:choose>
+                                <c:when test="${cliente != null }">
+                                    <input type="text" class="form-control" id="form18" value="${cliente.telefoneCliente}">
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="text" class="form-control" id="form18" value="Inserir Email do Cliente">
+                                </c:otherwise>
+                            </c:choose>
+                            <!--<input type="text" class="form-control" id="form18">-->
                         </div>
-                        <button type="submit" class="btn btn-primary">Editar</button>
+                        <c:choose>
+                            <c:when test="${cliente != null }">
+                                <button type="submit" class="btn btn-primary">Editar</button>
+                            </c:when>
+                            <c:otherwise>
+                                <button type="submit" class="btn btn-primary">Adicionar</button>
+                            </c:otherwise>
+                        </c:choose>
+                        <!--<button type="submit" class="btn btn-primary">Editar</button>-->
                     </form>
                 </div>
             </div>

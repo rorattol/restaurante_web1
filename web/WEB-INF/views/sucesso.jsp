@@ -16,14 +16,6 @@
         <div>Formulario</div>
         <h2>${nome_usuario}</h2>
 
-        <c:if>
-            <c:import url="colocar html do form"></c:import>
-        </c:if>
-
-
-
-
-        
         <h2>OFERECER OPÇÃO DE RESERVAR MESA</h2>
     </body>
 </html>
