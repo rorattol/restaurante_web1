@@ -130,6 +130,7 @@ public class PratoDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Prato p = new Prato();
+                p.setId(rs.getInt("id_prato"));
                 p.setNomPrato(rs.getString("nom_prato"));
                 p.setCategoriaPrato(rs.getString("categoria_prato"));
                 p.setDescricaoPrato(rs.getString("descricao_prato"));

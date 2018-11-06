@@ -37,7 +37,7 @@ public class CadastrarIngredienteServlet extends HttpServlet{
         if(retorno){
 
             //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
+            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
             
         }

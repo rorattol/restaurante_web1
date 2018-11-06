@@ -37,7 +37,7 @@ public class UpdateClienteServlet extends HttpServlet {
 
         if (retorno) {
 
-            disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
             resposta.println("<html><body>");

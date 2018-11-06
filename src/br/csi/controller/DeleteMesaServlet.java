@@ -29,7 +29,7 @@ public class DeleteMesaServlet extends HttpServlet {
 
         if(retorno) {
             //DIRECIONAR PARA LISTAR MESAS
-            disp = req.getRequestDispatcher("/WEB-INF/views/sucesso.jsp");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }
         else{

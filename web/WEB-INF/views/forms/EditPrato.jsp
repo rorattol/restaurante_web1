@@ -41,23 +41,23 @@
                         When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
                     </p>
 
-                    <form class="text-left">
+                    <form class="text-left" method="post" action="updatePrato">
                         <div class="form-group">
                             <label for="form16">Nome do Prato</label>
                             <input type="text" class="form-control" id="form16" value="${prato.nomPrato}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Categoria do Prato</label>
-                            <input type="text" class="form-control" id="form17">
+                            <input type="text" class="form-control" id="form17" value="${prato.categoriaPrato}">
                         </div>
                         <div class="form-group">
                             <label for="form18">Descrição do Prato</label>
-                            <input type="email" class="form-control" id="form18">
+                            <input type="email" class="form-control" id="form18" value="${prato.descricaoPrato}">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="form20">Preço</label>
-                                <input type="text" class="form-control" id="form20">
+                                <input type="text" class="form-control" id="form20" value="${prato.precoPrato}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>

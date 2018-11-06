@@ -110,7 +110,7 @@
                                         </c:if>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="#" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update/item=mesa&&id=${mesa.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -134,7 +134,7 @@
                                         <td>${ing.ingrediente}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="#" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update/item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -160,7 +160,7 @@
                                         <td>${func.emailFunc}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="#" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update/item=funcionario&&id=${func.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -188,7 +188,7 @@
                                         <td>${usuario.telefoneCliente}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="#" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update/item=usuario&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

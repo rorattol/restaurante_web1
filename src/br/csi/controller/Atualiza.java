@@ -1,7 +1,7 @@
 package br.csi.controller;
 
-import br.csi.dao.PratoDAO;
-import br.csi.model.Prato;
+import br.csi.dao.*;
+import br.csi.model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,5 +30,48 @@ public class Atualiza extends HttpServlet {
             dispatcher.forward(req, resp);
         }
 
+        if( req.getParameter("item").equals("ingrediente")){
+
+            String id = req.getParameter("id");
+
+            Ingrediente ing = new IngredienteDAO().read(Integer.parseInt(id));
+
+            req.setAttribute("ingrediente", ing);
+            dispatcher = req.getRequestDispatcher("forms/editIngrediente.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("item").equals("mesa")){
+
+            String id = req.getParameter("id");
+
+            Mesa mesa = new MesaDAO().read(Integer.parseInt(id));
+
+            req.setAttribute("mesa", mesa);
+            dispatcher = req.getRequestDispatcher("forms/editMesa.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("item").equals("cliente")){
+
+            String id = req.getParameter("id");
+
+            Cliente cliente = new ClienteDAO().read(Integer.parseInt(id));
+
+            req.setAttribute("cliente", cliente);
+            dispatcher = req.getRequestDispatcher("forms/editCliente.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("item").equals("funcionario")){
+
+            String id = req.getParameter("id");
+
+            Funcionario func = new FuncionarioDAO().read(Integer.parseInt(id));
+
+            req.setAttribute("funcionario", func);
+            dispatcher = req.getRequestDispatcher("forms/editFuncionario.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 }
