@@ -32,11 +32,8 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-        <!--
-//add verificação se o funcionario está logado
-                        <li class="nav-item"><a class="nav-link" href="../../loginCliente.jsp">Log in</a></li>
-                        <li class="nav-item"><a class="nav-link text-primary" href="../../loginFunc.jsp">Area Restrita</a></li>
-        -->
+                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
             </nav>
@@ -77,7 +74,7 @@
                                         <td>${prato.precoPrato}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="/editPrato/id=" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update/item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

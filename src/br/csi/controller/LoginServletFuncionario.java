@@ -7,6 +7,8 @@ package br.csi.controller;
 
 import br.csi.dao.LoginDAO;
 import br.csi.dao.FuncionarioDAO;
+import br.csi.model.Funcionario;
+
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,15 +36,14 @@ public class LoginServletFuncionario extends HttpServlet{
         
         System.out.println(login + " - "+ senha);
         
-        boolean autenticado = new LoginDAO().autenticarFuncionario(login, senha);
-
+        Funcionario autenticado = new LoginDAO().autenticarFuncionario(login, senha);
 
         RequestDispatcher disp;
         
-        if(autenticado){
+        if(autenticado.getId() != 0){
             
             HttpSession sessao = req.getSession();
-            sessao.setAttribute("FuncionarioLogado", new FuncionarioDAO().read(login, senha));
+            sessao.setAttribute("logado", autenticado);
             
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
@@ -54,8 +55,4 @@ public class LoginServletFuncionario extends HttpServlet{
             
         }
     }
-    
-    
-    
-    
 }

@@ -24,8 +24,18 @@
                         <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item"> <a class="nav-link" href="loginCliente.jsp">Log in</a> </li>
-                        <li class="nav-item"> <a class="nav-link text-primary" href="loginFunc.jsp">Area Restrita</a> </li>
+                        <c:choose>
+                            <c:when test="${logado}">
+                                    <li class="nav-item"><a class="nav-link text-primary" href="#">${logado.nome}</a></li>
+                                    <li class="nav-item"><a class="nav-link text-primary" href="#">Sair</a></li>
+
+                            </c:when>
+                            <c:otherwise>
+                                <li class="nav-item"> <a class="nav-link" href="loginCliente.jsp">Log in</a> </li>
+                                <li class="nav-item"> <a class="nav-link text-primary" href="loginFunc.jsp">Area Restrita</a> </li>
+                            </c:otherwise>
+                        </c:choose>
+
                     </ul>
                 </div>
             </div>

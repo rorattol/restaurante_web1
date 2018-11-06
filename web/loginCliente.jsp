@@ -51,7 +51,7 @@
                                 <input type="password" class="form-control" placeholder="Password" name="senha"> 
                                 <small class="form-text text-muted text-right"></small> 
                             </div>
-                            <a href="CadastrarCliente.jsp">Ainda não é cadastrado?</a>
+                            <a href="CriarCliente.jsp">Ainda não é cadastrado?</a>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
 

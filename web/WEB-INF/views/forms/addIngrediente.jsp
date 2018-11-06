@@ -30,11 +30,8 @@
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             </ul>
             <ul class="navbar-nav">
-                <!--
-        //add verificação se o funcionario está logado
-                                <li class="nav-item"><a class="nav-link" href="../../loginCliente.jsp">Log in</a></li>
-                                <li class="nav-item"><a class="nav-link text-primary" href="../../loginFunc.jsp">Area Restrita</a></li>
-                -->
+                <li class="nav-item">${logado.nome}</li>
+                <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
             </ul>
         </div>
     </nav>

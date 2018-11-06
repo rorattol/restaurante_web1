@@ -29,11 +29,8 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <!--
-                //add verificação se o funcionario está logado
-                                        <li class="nav-item"><a class="nav-link" href="../../loginCliente.jsp">Log in</a></li>
-                                        <li class="nav-item"><a class="nav-link text-primary" href="../../loginFunc.jsp">Area Restrita</a></li>
-                        -->
+                        <li class="nav-item">${logado.nome}</li>
+                        <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
             </nav>
@@ -43,10 +40,11 @@
                     <p class="mb-3">
                         When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
                     </p>
+
                     <form class="text-left">
                         <div class="form-group">
                             <label for="form16">Nome do Prato</label>
-                            <input type="text" class="form-control" id="form16">
+                            <input type="text" class="form-control" id="form16" value="${prato.nomPrato}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Categoria do Prato</label>

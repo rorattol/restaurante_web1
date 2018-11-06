@@ -5,6 +5,8 @@
  */
 package br.csi.dao;
 
+import br.csi.model.Funcionario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,8 +43,9 @@ public class LoginDAO {
         return retorno;
     }
     
-    public boolean autenticarFuncionario(String login, String senha) {
+    public Funcionario autenticarFuncionario(String login, String senha) {
 
+        Funcionario funcionario = new Funcionario();
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
             sql = "SELECT * FROM funcionario WHERE senha_func= ? and email_func = ?;";
@@ -51,12 +54,15 @@ public class LoginDAO {
             pre.setString(2, login);
             rs = pre.executeQuery();
             while (rs.next()) {
-                retorno = true;
+                funcionario.setId(rs.getInt("id_func"));
+                funcionario.setNomeFunc(rs.getString("nom_func"));
+                funcionario.setSenhaFunc(rs.getString("senha_func"));
+                funcionario.setEmailFunc(rs.getString("email_func"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return retorno;
+        return funcionario;
     }
     
 }
