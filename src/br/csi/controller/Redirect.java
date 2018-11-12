@@ -21,7 +21,7 @@ public class Redirect extends HttpServlet {
 
         if( req.getParameter("add").equals("mesa")){
 
-            dispatcher = req.getRequestDispatcher("forms/addMesa.jsp");
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addMesa.jsp");
             dispatcher.forward(req, resp);
 
         }
