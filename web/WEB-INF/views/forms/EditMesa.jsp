@@ -42,11 +42,11 @@
                         <jsp:useBean id="mesaDAO" class="br.csi.dao.MesaDAO"></jsp:useBean>
                         <div class="form-group">
                             <label for="form16">Número Mesa</label>
-                            <input type="text" class="form-control" id="form16" placeholder="Johann W. Goethe">
+                            <input type="text" class="form-control" id="form16" value="${mesaDAO.numMesa}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Quantidade Lugares</label>
-                            <input type="number" class="form-control" id="form17" placeholder="Werther Inc.">
+                            <input type="number" class="form-control" id="form17" value="${mesaDAO.lugares}">
                         </div>
                         <div class="form-group">
                             <label >Esta reservado?</label>

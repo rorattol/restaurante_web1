@@ -15,9 +15,20 @@ import java.io.IOException;
 public class Atualiza extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         RequestDispatcher dispatcher;
+
+        if( req.getParameter("item").equals("mesa")){
+
+            String id = req.getParameter("id");
+
+            Mesa mesa = new MesaDAO().read(Integer.parseInt(id));
+
+            req.setAttribute("mesa", mesa);
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/EditMesa.jsp");
+            dispatcher.forward(req, resp);
+        }
 
         if( req.getParameter("item").equals("prato")){
 
@@ -26,7 +37,7 @@ public class Atualiza extends HttpServlet {
             Prato prato = new PratoDAO().read(Integer.parseInt(id));
 
             req.setAttribute("prato", prato);
-            dispatcher = req.getRequestDispatcher("forms/editPrato.jsp");
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/EditPrato.jsp");
             dispatcher.forward(req, resp);
         }
 
@@ -37,18 +48,7 @@ public class Atualiza extends HttpServlet {
             Ingrediente ing = new IngredienteDAO().read(Integer.parseInt(id));
 
             req.setAttribute("ingrediente", ing);
-            dispatcher = req.getRequestDispatcher("forms/editIngrediente.jsp");
-            dispatcher.forward(req, resp);
-        }
-
-        if( req.getParameter("item").equals("mesa")){
-
-            String id = req.getParameter("id");
-
-            Mesa mesa = new MesaDAO().read(Integer.parseInt(id));
-
-            req.setAttribute("mesa", mesa);
-            dispatcher = req.getRequestDispatcher("forms/editMesa.jsp");
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/EditIngrediente.jsp");
             dispatcher.forward(req, resp);
         }
 
@@ -59,7 +59,7 @@ public class Atualiza extends HttpServlet {
             Cliente cliente = new ClienteDAO().read(Integer.parseInt(id));
 
             req.setAttribute("cliente", cliente);
-            dispatcher = req.getRequestDispatcher("forms/editCliente.jsp");
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/editCliente.jsp");
             dispatcher.forward(req, resp);
         }
 
@@ -70,7 +70,7 @@ public class Atualiza extends HttpServlet {
             Funcionario func = new FuncionarioDAO().read(Integer.parseInt(id));
 
             req.setAttribute("funcionario", func);
-            dispatcher = req.getRequestDispatcher("forms/editFuncionario.jsp");
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/EditFuncionario.jsp");
             dispatcher.forward(req, resp);
         }
     }

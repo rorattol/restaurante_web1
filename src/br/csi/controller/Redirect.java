@@ -1,8 +1,5 @@
 package br.csi.controller;
 
-import br.csi.dao.*;
-import br.csi.model.*;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,42 +23,28 @@ public class Redirect extends HttpServlet {
 
         }
 
-//        if( req.getParameter("add").equals("prato")){
-//
-//            Prato prato = new Prato();
-//
-//            req.setAttribute("prato", prato);
-//            dispatcher = req.getRequestDispatcher("forms/addPrato.jsp");
-//            dispatcher.forward(req, resp);
-//        }
-//
-//        if( req.getParameter("add").equals("ingrediente")){
-//
-//            Ingrediente ing = new Ingrediente();
-//
-//            req.setAttribute("ingrediente", ing);
-//            dispatcher = req.getRequestDispatcher("forms/addIngrediente.jsp");
-//            dispatcher.forward(req, resp);
-//        }
-//
-//        if( req.getParameter("add").equals("cliente")){
-//
-//
-//
-//            Cliente cliente = new Cliente();
-//
-//            req.setAttribute("cliente", cliente);
-//            dispatcher = req.getRequestDispatcher("forms/addCliente.jsp");
-//            dispatcher.forward(req, resp);
-//        }
-//
-//        if( req.getParameter("add").equals("funcionario")){
-//
-//            Funcionario func = new Funcionario();
-//
-//            req.setAttribute("funcionario", func);
-//            dispatcher = req.getRequestDispatcher("forms/addFuncionario.jsp");
-//            dispatcher.forward(req, resp);
-//        }
+        if( req.getParameter("add").equals("prato")){
+
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addPrato.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("add").equals("ingrediente")){
+
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addIngrediente.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("add").equals("cliente")){
+
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addCliente.jsp");
+            dispatcher.forward(req, resp);
+        }
+
+        if( req.getParameter("add").equals("funcionario")){
+
+            dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addFuncionario.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 }

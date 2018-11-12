@@ -24,7 +24,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar6">
-            <a class="navbar-brand text-primary d-none d-md-block" href="../../index.jsp">
+            <a class="navbar-brand text-primary d-none d-md-block" href="../index.jsp">
                 <i class="fa d-inline fa-lg fa-circle"></i>
                 <b> Sistema de reserva de restaurante</b>
             </a>
@@ -49,12 +49,13 @@
             <form class="text-left" method="post" action="cadastrarMesa">
                 <div class="form-group">
                     <label for="form16">Número Mesa</label>
-                    <input type="text" class="form-control" id="form16" placeholder="Johann W. Goethe">
+                    <input type="number" class="form-control" id="form16" name="numero">
                 </div>
                 <div class="form-group">
                     <label for="form17">Quantidade Lugares</label>
-                    <input type="number" class="form-control" id="form17" placeholder="Werther Inc.">
+                    <input type="number" class="form-control" id="form17" name="lugares">
                 </div>
+                <%--nao é necessario esse trecho pq na hora da criação, a mesa estará automaticamente disponivel--%>
                 <%--<div class="form-group">--%>
                     <%--<label >Esta reservado?</label>--%>
                     <%--<c:if test="${mesa.reservado == false}">--%>
@@ -66,7 +67,7 @@
                         <%--<a class="btn btn-danger">Reservado</a>--%>
                     <%--</c:if>--%>
                 <%--</div>--%>
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
         </div>
     </div>

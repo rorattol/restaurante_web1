@@ -29,13 +29,13 @@ public class MesaDAO {
     ResultSet rs;
     boolean retorno = false;
 
-    public boolean create(int num_mesa, int qtdLugares) {
+    public boolean create(Mesa mesa) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
             sql = "INSERT INTO mesa (num_mesa, lugares_mesa, reservado_mesa) VALUES (?, ?, ?);";
             pre =  conn.prepareStatement(sql);
-            pre.setInt(1, num_mesa);
-            pre.setInt(2, qtdLugares);
+            pre.setInt(1, mesa.getNumMesa());
+            pre.setInt(2, mesa.getLugares());
             pre.setBoolean(3, false);
             pre.executeUpdate();
 
@@ -56,11 +56,11 @@ public class MesaDAO {
             pre.setInt(1, id);
             rs = pre.executeQuery();
             while (rs.next()) {
-                Mesa m = new Mesa();
-                m.setNumMesa(rs.getInt("num_mesa"));
-                m.setLugares(rs.getInt("lugares_mesa"));
-                m.setReservado(rs.getBoolean("reservado_mesa"));
-                return m;
+                Mesa mesa = new Mesa();
+                mesa.setNumMesa(rs.getInt("num_mesa"));
+                mesa.setLugares(rs.getInt("lugares_mesa"));
+                mesa.setReservado(rs.getBoolean("reservado_mesa"));
+                return mesa;
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

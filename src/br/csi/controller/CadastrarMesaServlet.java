@@ -31,10 +31,10 @@ public class CadastrarMesaServlet extends HttpServlet {
         String num_mesa = req.getParameter("numero");
         int lugares = Integer.parseInt(qtdLugares);
         int numero = Integer.parseInt(num_mesa);
-        Mesa mesa = new Mesa();
+        Mesa mesa = new Mesa(numero, lugares);
         
-        boolean retorno = new MesaDAO().create(numero, lugares);
-        
+        boolean retorno = new MesaDAO().create(mesa);
+
         PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
 

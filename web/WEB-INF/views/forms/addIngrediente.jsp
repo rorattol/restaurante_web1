@@ -47,9 +47,9 @@
             <form class="text-left" method="post" action="cadastrarIngrediente">
                 <div class="form-group">
                     <label for="form16">Nome do Ingrediente<br></label>
-                    <input type="text" class="form-control" id="form16">
+                    <input type="text" class="form-control" id="form16" name="ingrediente">
                 </div>
-                <button type="submit" class="btn btn-primary">Editar</button>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
         </div>
     </div>
