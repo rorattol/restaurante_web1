@@ -51,8 +51,10 @@
                             <jsp:useBean id="ingredienteDAO" class="br.csi.dao.IngredienteDAO"></jsp:useBean>
                             <jsp:useBean id="funcionarioDAO" class="br.csi.dao.FuncionarioDAO"></jsp:useBean>
                             <jsp:useBean id="usuarioDAO" class="br.csi.dao.ClienteDAO"></jsp:useBean>
+
+
                             <h2>Pratos</h2>
-                            <a href="#" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=prato" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -74,7 +76,7 @@
                                         <td>${prato.precoPrato}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update/item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -82,7 +84,7 @@
                             <hr>
 
                             <h2>Mesa</h2>
-                            <a href="#" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=mesa" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -110,7 +112,7 @@
                                         </c:if>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update/item=mesa&&id=${mesa.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=mesa&&id=${mesa.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -118,7 +120,7 @@
                             <hr>
 
                             <h2>Ingrediente</h2>
-                            <a href="#" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=ingrediente" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -134,7 +136,7 @@
                                         <td>${ing.ingrediente}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update/item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -142,7 +144,7 @@
                             <hr>
 
                             <h2>Funcionario</h2>
-                            <a href="#" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=funcionario" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -160,7 +162,7 @@
                                         <td>${func.emailFunc}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update/item=funcionario&&id=${func.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=funcionario&&id=${func.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -168,7 +170,7 @@
                             <hr>
 
                             <h2>Cliente</h2>
-                            <a href="#" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=cliente" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -188,7 +190,7 @@
                                         <td>${usuario.telefoneCliente}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update/item=usuario&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=usuario&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
