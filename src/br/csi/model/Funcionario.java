@@ -12,7 +12,7 @@ package br.csi.model;
 public class Funcionario {
     
     private int id;
-    private String nome;
+    private String nomeFunc;
     private String senhaFunc;
     private String emailFunc;
 
@@ -25,11 +25,11 @@ public class Funcionario {
     }
 
     public String getNomeFunc() {
-        return nome;
+        return nomeFunc;
     }
 
     public void setNomeFunc(String nomeFunc) {
-        this.nome = nomeFunc;
+        this.nomeFunc = nomeFunc;
     }
 
     public String getSenhaFunc() {

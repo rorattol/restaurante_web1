@@ -57,6 +57,7 @@ public class MesaDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Mesa mesa = new Mesa();
+                mesa.setId(rs.getInt("id_mesa"));
                 mesa.setNumMesa(rs.getInt("num_mesa"));
                 mesa.setLugares(rs.getInt("lugares_mesa"));
                 mesa.setReservado(rs.getBoolean("reservado_mesa"));

@@ -93,7 +93,6 @@
                                         <th>Número Lugares</th>
                                         <th>Reservado</th>
                                         <th>Ações</th>
-
                                     </tr>
                                 </thead>
 
