@@ -9,6 +9,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="theme.css" type="text/css">
         <title>Title</title>
     </head>
     <body>
@@ -38,10 +42,10 @@
                 <div class="mx-auto col-lg-6 col-10">
                     <h1>Editar Ingrediente</h1>
                     <p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
-                    <form class="text-left">
+                    <form class="text-left" method="post" action="updateIngrediente">
                         <div class="form-group">
                             <label for="form16">Nome do Ingrediente<br></label>
-                            <input type="text" class="form-control" id="form16">
+                            <input type="text" class="form-control" id="form16" value="${ingrediente.ingrediente}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

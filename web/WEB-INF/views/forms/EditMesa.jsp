@@ -9,6 +9,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="theme.css" type="text/css">
         <title>Title</title>
     </head>
     <body>
@@ -38,15 +42,14 @@
                 <div class="mx-auto col-lg-6 col-10">
                     <h1>Editar Mesa</h1>
                     <p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
-                    <form class="text-left">
-                        <jsp:useBean id="mesaDAO" class="br.csi.dao.MesaDAO"></jsp:useBean>
+                    <form class="text-left" method="post" action="updateMesa">
                         <div class="form-group">
                             <label for="form16">Número Mesa</label>
-                            <input type="text" class="form-control" id="form16" value="${mesaDAO.numMesa}">
+                            <input type="text" class="form-control" id="form16" value="${mesa.numMesa}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Quantidade Lugares</label>
-                            <input type="number" class="form-control" id="form17" value="${mesaDAO.lugares}">
+                            <input type="number" class="form-control" id="form17" value="${mesa.lugares}">
                         </div>
                         <div class="form-group">
                             <label >Esta reservado?</label>

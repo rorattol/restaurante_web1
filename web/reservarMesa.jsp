@@ -65,12 +65,11 @@
                                     <td>${mesa.numMesa}</td>
                                     <td>${mesa.lugares}</td>
                                     <c:if test = "${mesa.reservado == false}">
-                                        <td><a class="btn btn-primary" href="reservaMesa?reservado=${mesa.reservado}&idMesa=${mesa.id}&lugares=${mesa.lugares}&numMesa=${mesa.numMesa}">Reservar</a></td>
+                                        <td><a class="btn btn-primary" href="updateMesa?reservado=${mesa.reservado}&idMesa=${mesa.id}&lugares=${mesa.lugares}&numMesa=${mesa.numMesa}">Reservar</a></td>
                                     </c:if>
                                     <c:if test="${mesa.reservado == true}">
                                       <td><a class="btn btn-danger disabled" href="">Reservado</a></td>
                                     </c:if>
-
                                 </tr>
                             </c:forEach>
                             </tbody>
