@@ -4,7 +4,6 @@ package br.csi.controller;
 import br.csi.dao.IngredienteDAO;
 import br.csi.dao.PratoDAO;
 import br.csi.model.Ingrediente;
-import br.csi.model.Mesa;
 import br.csi.model.Prato;
 
 import java.io.IOException;
@@ -48,8 +47,8 @@ public class CadastrarPratoServlet extends HttpServlet {
 
         for (int i = 0; i < ingredientesDB.size(); i++) {
             int id_ingrediente = 0;
-            if (req.getParameter(ingredientesDB.get(i).getIngrediente())!= null){
-                id_ingrediente = Integer.parseInt(req.getParameter(ingredientesDB.get(i).getIngrediente()));
+            if (req.getParameter(ingredientesDB.get(i).getNome())!= null){
+                id_ingrediente = Integer.parseInt(req.getParameter(ingredientesDB.get(i).getNome()));
                 ingrediente.setId(id_ingrediente);
                 ingredientesPrato.add(ingrediente);
             }

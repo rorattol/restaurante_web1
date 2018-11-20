@@ -50,7 +50,7 @@ public class IngredienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Ingrediente ing = new Ingrediente();
-                ing.setIngrediente(rs.getString("nom_ingrediente"));
+                ing.setNome(rs.getString("nom_ingrediente"));
                 return ing;
             }
         } catch (SQLException ex) {
@@ -64,7 +64,7 @@ public class IngredienteDAO {
 
             sql = "UPDATE ingrediente SET nom_ingrediente = ? WHERE id_ingrediente = ?;";
             pre = conn.prepareStatement(sql);
-            pre.setString(1, ingrediente.getIngrediente());
+            pre.setString(1, ingrediente.getNome());
             pre.setInt(5, ingrediente.getId());
             if (pre.executeUpdate() > 0) {
                 retorno = true;
@@ -103,7 +103,7 @@ public class IngredienteDAO {
                 Ingrediente ing = new Ingrediente();
 
                 ing.setId(rs.getInt("id_ingrediente"));
-                ing.setIngrediente(rs.getString("nom_ingrediente"));
+                ing.setNome(rs.getString("nom_ingrediente"));
 
                 ingredientes.add(ing);
             }

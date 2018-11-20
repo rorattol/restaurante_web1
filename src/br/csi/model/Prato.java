@@ -14,18 +14,18 @@ import java.util.ArrayList;
 public class Prato {
     
     private int id;
-    private String nomPrato;
-    private String descricaoPrato;
+    private String nome;
+    private String descricao;
     private ArrayList<Ingrediente> ingredientes;
-    private String categoriaPrato;
-    private float precoPrato;
+    private String categoria;
+    private float preco;
 
 
-    public Prato(String nomPrato, String descricaoPrato, String categoriaPrato, float precoPrato){
-        this.nomPrato = nomPrato;
-        this.descricaoPrato = descricaoPrato;
-        this.categoriaPrato = categoriaPrato;
-        this.precoPrato = precoPrato;
+    public Prato(String nome, String descricao, String categoria, float preco){
+        this.nome = nome;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.preco = preco;
     }
 
     public Prato(){
@@ -40,20 +40,20 @@ public class Prato {
         this.id = id;
     }
 
-    public String getNomPrato() {
-        return nomPrato;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomPrato(String nomPrato) {
-        this.nomPrato = nomPrato;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescricaoPrato() {
-        return descricaoPrato;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricaoPrato(String descricaoPrato) {
-        this.descricaoPrato = descricaoPrato;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public ArrayList<Ingrediente> getIngredientes() {
@@ -64,19 +64,19 @@ public class Prato {
         this.ingredientes = ingredientes;
     }
 
-    public String getCategoriaPrato() {
-        return categoriaPrato;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaPrato(String categoriaPrato) {
-        this.categoriaPrato = categoriaPrato;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public float getPrecoPrato() {
-        return precoPrato;
+    public float getPreco() {
+        return preco;
     }
 
-    public void setPrecoPrato(float precoPrato) {
-        this.precoPrato = precoPrato;
+    public void setPreco(float preco) {
+        this.preco = preco;
     }
 }

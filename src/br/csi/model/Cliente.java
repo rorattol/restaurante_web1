@@ -12,10 +12,10 @@ package br.csi.model;
 public class Cliente {
     
     private int id;
-    private String nomeCliente;
-    private String senhaCliente;
-    private String emailCliente;
-    private String telefoneCliente;
+    private String nome;
+    private String senha;
+    private String email;
+    private String telefone;
 
     public int getId() {
         return id;
@@ -25,36 +25,36 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getNomeCliente() {
-        return nomeCliente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getSenhaCliente() {
-        return senhaCliente;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setSenhaCliente(String senhaCliente) {
-        this.senhaCliente = senhaCliente;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
-    public String getEmailCliente() {
-        return emailCliente;
+    public String getEmail() {
+        return email;
     }
 
-    public void setEmailCliente(String emailCliente) {
-        this.emailCliente = emailCliente;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTelefoneCliente() {
-        return telefoneCliente;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefoneCliente(String telefoneCliente) {
-        this.telefoneCliente = telefoneCliente;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
     
 }

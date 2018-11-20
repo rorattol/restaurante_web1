@@ -25,10 +25,10 @@ public class UpdateClienteServlet extends HttpServlet {
 
         Cliente cli = new Cliente();
 
-        cli.setNomeCliente(nome);
-        cli.setSenhaCliente(senha);
-        cli.setEmailCliente(email);
-        cli.setTelefoneCliente(telefone);
+        cli.setNome(nome);
+        cli.setSenha(senha);
+        cli.setEmail(email);
+        cli.setTelefone(telefone);
 
         boolean retorno = new ClienteDAO().update(cli);
 

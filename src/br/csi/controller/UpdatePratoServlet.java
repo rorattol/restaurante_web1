@@ -26,10 +26,10 @@ public class UpdatePratoServlet extends HttpServlet {
 
         Float preco = Float.parseFloat(preco1);
 
-        prato.setNomPrato(nome);
-        prato.setCategoriaPrato(categoria);
-        prato.setDescricaoPrato(descricao);
-        prato.setPrecoPrato(preco);
+        prato.setNome(nome);
+        prato.setCategoria(categoria);
+        prato.setDescricao(descricao);
+        prato.setPreco(preco);
 
         boolean retorno = new PratoDAO().update(prato);
 

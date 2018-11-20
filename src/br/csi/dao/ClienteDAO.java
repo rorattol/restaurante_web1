@@ -56,10 +56,10 @@ public class ClienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
-                c.setNomeCliente(rs.getString("nome"));
-                c.setEmailCliente(rs.getString("email"));
-                c.setSenhaCliente(rs.getString("senha"));
-                c.setTelefoneCliente(rs.getString("telefone"));
+                c.setNome(rs.getString("nome"));
+                c.setEmail(rs.getString("email"));
+                c.setSenha(rs.getString("senha"));
+                c.setTelefone(rs.getString("telefone"));
                 return c;
             }
         } catch (SQLException ex) {
@@ -79,9 +79,9 @@ public class ClienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
-                c.setNomeCliente(rs.getString("nom_cliente"));
-                c.setEmailCliente(rs.getString("email_cliente"));
-                c.setSenhaCliente(rs.getString("senha_cliente"));
+                c.setNome(rs.getString("nom_cliente"));
+                c.setEmail(rs.getString("email_cliente"));
+                c.setSenha(rs.getString("senha_cliente"));
                 return c;
             }
         } catch (SQLException ex) {
@@ -96,10 +96,10 @@ public class ClienteDAO {
             sql = "UPDATE cliente SET nom_cliente = ?, email_cliente = ?, senha_cliente = ?, tel_cliente = ? WHERE id_cliente = ?;";
 
             pre = conn.prepareStatement(sql);
-            pre.setString(1, cliente.getNomeCliente());
-            pre.setString(2, cliente.getEmailCliente());
-            pre.setString(3, cliente.getSenhaCliente());
-            pre.setString(4, cliente.getTelefoneCliente());
+            pre.setString(1, cliente.getNome());
+            pre.setString(2, cliente.getEmail());
+            pre.setString(3, cliente.getSenha());
+            pre.setString(4, cliente.getTelefone());
             pre.setInt(5, cliente.getId());
             if (pre.executeUpdate() > 0) {
                 retorno = true;
@@ -137,10 +137,10 @@ public class ClienteDAO {
 
                 Cliente cli = new Cliente();
                 cli.setId(rs.getInt("id_cliente"));
-                cli.setNomeCliente(rs.getString("nom_cliente"));
-                cli.setEmailCliente(rs.getString("email_cliente"));
-                cli.setSenhaCliente(rs.getString("senha_cliente"));
-                cli.setTelefoneCliente(rs.getString("tel_cliente"));
+                cli.setNome(rs.getString("nom_cliente"));
+                cli.setEmail(rs.getString("email_cliente"));
+                cli.setSenha(rs.getString("senha_cliente"));
+                cli.setTelefone(rs.getString("tel_cliente"));
 
                 usuarios.add(cli);
             }

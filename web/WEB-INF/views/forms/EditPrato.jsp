@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item">${logado.nome}</li>
                         <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
@@ -50,15 +50,15 @@
                     <form class="text-left" method="post" action="updatePrato">
                         <div class="form-group">
                             <label for="form16">Nome do Prato</label>
-                            <input type="text" class="form-control" id="form16" value="${prato.nomPrato}">
+                            <input type="text" class="form-control" id="form16" value="${prato.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Categoria do Prato</label>
-                            <input type="text" class="form-control" id="form17" value="${prato.categoriaPrato}">
+                            <input type="text" class="form-control" id="form17" value="${prato.categoria}">
                         </div>
                         <div class="form-group">
                             <label for="form18">Descrição do Prato</label>
-                            <input type="email" class="form-control" id="form18" value="${prato.descricaoPrato}">
+                            <input type="email" class="form-control" id="form18" value="${prato.descricao}">
                         </div>
 
 
@@ -67,7 +67,7 @@
                             <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
 
                                 <div class="form-check" >
-                                    <input class="form-check-input" type="checkbox" id="form21" name="${ing.ingrediente}" value="${ing.id}"> ${ing.ingrediente} </br>
+                                    <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
                                 </div>
                             </c:forEach>
                         </div>
@@ -76,7 +76,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="form20">Preço</label>
-                                <input type="text" class="form-control" id="form20" value="${prato.precoPrato}">
+                                <input type="text" class="form-control" id="form20" value="${prato.preco}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>

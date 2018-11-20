@@ -32,7 +32,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">${logado.nomeFunc}</li>
+                <li class="nav-item">${logado.nome}</li>
                 <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
                     <label for="form21">Ingredientes</label>
                     <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
                         <div class="form-check" >
-                            <input class="form-check-input" type="checkbox" id="form21" name="${ing.ingrediente}" value="${ing.id}"> ${ing.ingrediente} </br>
+                            <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
                         </div>
                     </c:forEach>
                 </div>

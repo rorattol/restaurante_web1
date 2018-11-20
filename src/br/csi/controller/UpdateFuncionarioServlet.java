@@ -23,9 +23,9 @@ public class UpdateFuncionarioServlet extends HttpServlet {
         String senha = req.getParameter("senha");
         Funcionario func = new Funcionario();
 
-        func.setNomeFunc(nome);
-        func.setSenhaFunc(senha);
-        func.setEmailFunc(email);
+        func.setNome(nome);
+        func.setSenha(senha);
+        func.setEmail(email);
 
         boolean retorno = new FuncionarioDAO().update(func);
 

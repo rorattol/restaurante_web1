@@ -13,7 +13,7 @@ public class Ingrediente {
     
     
     private int id;
-    private String ingrediente;
+    private String nome;
 
     public int getId() {
         return id;
@@ -23,12 +23,12 @@ public class Ingrediente {
         this.id = id;
     }
 
-    public String getIngrediente() {
-        return ingrediente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setIngrediente(String ingrediente) {
-        this.ingrediente = ingrediente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
 }

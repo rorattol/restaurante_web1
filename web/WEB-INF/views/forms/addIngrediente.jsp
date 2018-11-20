@@ -35,7 +35,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             </ul>
             <ul class="navbar-nav">
-                <li class="nav-item">${logado.nomeFunc}</li>
+                <li class="nav-item">${logado.nome}</li>
                 <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
             <form class="text-left" method="post" action="cadastrarIngrediente">
                 <div class="form-group">
                     <label for="form16">Nome do Ingrediente<br></label>
-                    <input type="text" class="form-control" id="form16" name="ingrediente">
+                    <input type="text" class="form-control" id="form16" name="nome">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>

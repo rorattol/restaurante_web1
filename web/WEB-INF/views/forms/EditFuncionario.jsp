@@ -33,7 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item">${logado.nome}</li>
                         <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
@@ -47,11 +47,11 @@
                     <form class="text-left" method="post" action="updateFunc">
                         <div class="form-group">
                             <label for="form16">Nome do Funcionário</label>
-                            <input type="text" class="form-control" id="form16" value="${funcionario.nomeFunc}">
+                            <input type="text" class="form-control" id="form16" value="${funcionario.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Funcionário</label>
-                            <input type="text" class="form-control" id="form17" value="#{funcionario.emailFunc}">
+                            <input type="text" class="form-control" id="form17" value="#{funcionario.email}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

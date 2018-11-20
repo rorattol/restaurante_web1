@@ -29,7 +29,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item">${logado.nome}</li>
                         <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
@@ -44,15 +44,15 @@
                     <form class="text-left" method="post" action="updateCliente">
                         <div class="form-group">
                             <label for="form16">Nome do Cliente</label>
-                            <input type="text" class="form-control" id="form16" value="${cliente.nomeCliente}">
+                            <input type="text" class="form-control" id="form16" value="${cliente.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Cliente</label>
-                            <input type="email" class="form-control" id="form17" value="${cliente.emailCliente}">
+                            <input type="email" class="form-control" id="form17" value="${cliente.email}">
                         </div>
                         <div class="form-group">
                             <label for="form18">Telefone do Cliente</label>
-                            <input type="text" class="form-control" id="form18" value="${cliente.telefoneCliente}">
+                            <input type="text" class="form-control" id="form18" value="${cliente.telefone}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

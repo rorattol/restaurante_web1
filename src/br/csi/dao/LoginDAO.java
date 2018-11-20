@@ -55,9 +55,9 @@ public class LoginDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 funcionario.setId(rs.getInt("id_func"));
-                funcionario.setNomeFunc(rs.getString("nom_func"));
-                funcionario.setSenhaFunc(rs.getString("senha_func"));
-                funcionario.setEmailFunc(rs.getString("email_func"));
+                funcionario.setNome(rs.getString("nom_func"));
+                funcionario.setSenha(rs.getString("senha_func"));
+                funcionario.setEmail(rs.getString("email_func"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();

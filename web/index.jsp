@@ -66,10 +66,10 @@
 
                         <c:forEach var="prato" items="${pratoDAO.pratos}">
                                 <tr>
-                                    <td>${prato.nomPrato}</td>
-                                    <td>${prato.categoriaPrato}</td>
-                                    <td>${prato.descricaoPrato}</td>
-                                    <td>${prato.precoPrato}</td>
+                                    <td>${prato.nome}</td>
+                                    <td>${prato.categoria}</td>
+                                    <td>${prato.descricao}</td>
+                                    <td>${prato.preco}</td>
                                 </tr>	
                             </c:forEach>
                         </table>

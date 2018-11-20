@@ -34,10 +34,10 @@ public class PratoDAO {
             conn.setAutoCommit(false);
             sql = "INSERT INTO prato (nom_prato, categoria_prato, descricao_prato, preco_prato) VALUES (?, ?, ?, ?);";
             pre = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pre.setString(1, prato.getNomPrato());
-            pre.setString(2, prato.getCategoriaPrato());
-            pre.setString(3, prato.getDescricaoPrato());
-            pre.setFloat(4, prato.getPrecoPrato());
+            pre.setString(1, prato.getNome());
+            pre.setString(2, prato.getCategoria());
+            pre.setString(3, prato.getDescricao());
+            pre.setFloat(4, prato.getPreco());
             pre.execute();
             rs = pre.getGeneratedKeys();
             rs.next();
@@ -72,10 +72,10 @@ public class PratoDAO {
             pre.setInt(1, id);
             rs = pre.executeQuery();
             while (rs.next()) {
-                p.setNomPrato(rs.getString("nom_prato"));
-                p.setCategoriaPrato(rs.getString("categoria_prato"));
-                p.setDescricaoPrato(rs.getString("descricao_prato"));
-                p.setPrecoPrato(rs.getFloat("preco_prato"));
+                p.setNome(rs.getString("nom_prato"));
+                p.setCategoria(rs.getString("categoria_prato"));
+                p.setDescricao(rs.getString("descricao_prato"));
+                p.setPreco(rs.getFloat("preco_prato"));
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -89,10 +89,10 @@ public class PratoDAO {
             sql = "UPDATE prato SET nom_prato = ?, categoria_prato = ?, descricao_prato = ?, preco_prato = ? WHERE id_prato = ?;";
 
             pre = conn.prepareStatement(sql);
-            pre.setString(1, prato.getNomPrato());
-            pre.setString(2, prato.getCategoriaPrato());
-            pre.setString(3, prato.getDescricaoPrato());
-            pre.setFloat(4, prato.getPrecoPrato());
+            pre.setString(1, prato.getNome());
+            pre.setString(2, prato.getCategoria());
+            pre.setString(3, prato.getDescricao());
+            pre.setFloat(4, prato.getPreco());
             pre.setInt(5, prato.getId());
             if (pre.executeUpdate() > 0) {
                  retorno = true;
@@ -131,10 +131,10 @@ public class PratoDAO {
             while (rs.next()) {
                 Prato p = new Prato();
                 p.setId(rs.getInt("id_prato"));
-                p.setNomPrato(rs.getString("nom_prato"));
-                p.setCategoriaPrato(rs.getString("categoria_prato"));
-                p.setDescricaoPrato(rs.getString("descricao_prato"));
-                p.setPrecoPrato(rs.getFloat("preco_prato"));
+                p.setNome(rs.getString("nom_prato"));
+                p.setCategoria(rs.getString("categoria_prato"));
+                p.setDescricao(rs.getString("descricao_prato"));
+                p.setPreco(rs.getFloat("preco_prato"));
                 
                 pratos.add(p);
             }

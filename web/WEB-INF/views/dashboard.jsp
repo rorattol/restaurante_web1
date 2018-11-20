@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="#">About</a></li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item">${logado.nome}</li>
                         <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
                     </ul>
                 </div>
@@ -71,10 +71,10 @@
                                 <c:forEach var="prato" items="${pratoDAO.pratos}">
                                     <tr>
                                         <td>${prato.id}</td>
-                                        <td>${prato.nomPrato}</td>
-                                        <td>${prato.categoriaPrato}</td>
-                                        <td>${prato.descricaoPrato}</td>
-                                        <td>${prato.precoPrato}</td>
+                                        <td>${prato.nome}</td>
+                                        <td>${prato.categoria}</td>
+                                        <td>${prato.descricao}</td>
+                                        <td>${prato.preco}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="update?item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
@@ -120,7 +120,7 @@
                             <hr>
 
                             <h2>Ingrediente</h2>
-                            <a href="redirect?add=ingrediente" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=nome" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -133,10 +133,10 @@
                                 <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
                                     <tr>
                                         <td>${ing.id}</td>
-                                        <td>${ing.ingrediente}</td>
+                                        <td>${ing.nome}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update?item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=nome&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -158,8 +158,8 @@
                                 <c:forEach var="func" items="${funcionarioDAO.funcionarios}">
                                     <tr>
                                         <td>${func.id}</td>
-                                        <td>${func.nomeFunc}</td>
-                                        <td>${func.emailFunc}</td>
+                                        <td>${func.nome}</td>
+                                        <td>${func.email}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="update?item=funcionario&&id=${func.id}" class="btn btn-info" role="button">Edit</a>
@@ -185,9 +185,9 @@
                                 <c:forEach var="usuario" items="${usuarioDAO.clientes}">
                                     <tr>
                                         <td>${usuario.id}</td>
-                                        <td>${usuario.nomeCliente}</td>
-                                        <td>${usuario.emailCliente}</td>
-                                        <td>${usuario.telefoneCliente}</td>
+                                        <td>${usuario.nome}</td>
+                                        <td>${usuario.email}</td>
+                                        <td>${usuario.telefone}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
                                             <a href="update?item=usuario&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>

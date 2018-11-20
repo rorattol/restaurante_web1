@@ -2,7 +2,6 @@ package br.csi.controller;
 
 import br.csi.dao.IngredienteDAO;
 import br.csi.model.Ingrediente;
-import br.csi.model.Prato;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +24,7 @@ public class UpdateIngredienteServlet extends HttpServlet {
 
         Ingrediente ing = new Ingrediente();
         ing.setId(idIng);
-        ing.setIngrediente(ingrediente);
+        ing.setNome(ingrediente);
 
 
         boolean retorno = new IngredienteDAO().update(ing);

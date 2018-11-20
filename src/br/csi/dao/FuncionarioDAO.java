@@ -56,9 +56,9 @@ public class FuncionarioDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Funcionario f = new Funcionario();
-                f.setNomeFunc(rs.getString("nome_func"));
-                f.setEmailFunc(rs.getString("email_func"));
-                f.setSenhaFunc(rs.getString("senha_func"));
+                f.setNome(rs.getString("nome_func"));
+                f.setEmail(rs.getString("email_func"));
+                f.setSenha(rs.getString("senha_func"));
                 return f;
             }
         } catch (SQLException ex) {
@@ -78,9 +78,9 @@ public class FuncionarioDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
 
-                f.setNomeFunc(rs.getString("nome"));
-                f.setEmailFunc(rs.getString("email"));
-                f.setSenhaFunc(rs.getString("senha"));
+                f.setNome(rs.getString("nome"));
+                f.setEmail(rs.getString("email"));
+                f.setSenha(rs.getString("senha"));
 
             }
         } catch (SQLException ex) {
@@ -94,9 +94,9 @@ public class FuncionarioDAO {
 
             sql = "UPDATE funcionario SET nom_func = ?, email_func = ?, senha_func = ? WHERE id_func = ?;";
             pre = conn.prepareStatement(sql);
-            pre.setString(1, funcionario.getNomeFunc());
-            pre.setString(2, funcionario.getEmailFunc());
-            pre.setString(3, funcionario.getSenhaFunc());
+            pre.setString(1, funcionario.getNome());
+            pre.setString(2, funcionario.getEmail());
+            pre.setString(3, funcionario.getSenha());
             pre.setInt(4, funcionario.getId());
             if (pre.executeUpdate() > 0) {
                 retorno = true;
@@ -134,9 +134,9 @@ public class FuncionarioDAO {
                 Funcionario f = new Funcionario();
 
                 f.setId(rs.getInt("id_func"));
-                f.setNomeFunc(rs.getString("nom_func"));
-                f.setSenhaFunc(rs.getString("senha_func"));
-                f.setEmailFunc(rs.getString("email_func"));
+                f.setNome(rs.getString("nom_func"));
+                f.setSenha(rs.getString("senha_func"));
+                f.setEmail(rs.getString("email_func"));
                 funcionarios.add(f);
             }
         } catch (SQLException ex) {

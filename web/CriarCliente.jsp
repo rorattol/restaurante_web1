@@ -45,7 +45,7 @@
                         <h1>Cadastre-se</h1>
                         <p class="mb-3">Junte-se a nós. Com seu cadastro, além da possibilidade de ver o menu do nosso restaurante, poderá ainda fazer reservas de mesa.</p>
 
-                        <form class="text-left" action="cadastrarUsuario" method="post">
+                        <form class="text-left" action="cadastroUsuario" method="post">
                             <div class="form-group">
                                 <label for="form16">Seu nome</label>
                                 <input type="text" class="form-control" id="form16" name="nome" placeholder="Nome Sobrenome">
