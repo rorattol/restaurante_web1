@@ -44,6 +44,8 @@
                     <p class="mb-3">
                         When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
                     </p>
+                    <jsp:useBean id="ingredienteDAO" class="br.csi.dao.IngredienteDAO"></jsp:useBean>
+
 
                     <form class="text-left" method="post" action="updatePrato">
                         <div class="form-group">
@@ -58,6 +60,19 @@
                             <label for="form18">Descrição do Prato</label>
                             <input type="email" class="form-control" id="form18" value="${prato.descricaoPrato}">
                         </div>
+
+
+                        <div class="form-group">
+                            <label for="form21">Ingredientes</label>
+                            <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
+
+                                <div class="form-check" >
+                                    <input class="form-check-input" type="checkbox" id="form21" name="${ing.ingrediente}" value="${ing.id}"> ${ing.ingrediente} </br>
+                                </div>
+                            </c:forEach>
+                        </div>
+
+
                         <div class="form-row">
                             <div class="form-group col-md-12">
                                 <label for="form20">Preço</label>
