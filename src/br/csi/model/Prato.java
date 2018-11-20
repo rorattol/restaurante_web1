@@ -20,6 +20,18 @@ public class Prato {
     private String categoriaPrato;
     private float precoPrato;
 
+
+    public Prato(String nomPrato, String descricaoPrato, String categoriaPrato, float precoPrato){
+        this.nomPrato = nomPrato;
+        this.descricaoPrato = descricaoPrato;
+        this.categoriaPrato = categoriaPrato;
+        this.precoPrato = precoPrato;
+    }
+
+    public Prato(){
+
+    }
+
     public int getId() {
         return id;
     }

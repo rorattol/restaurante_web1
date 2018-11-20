@@ -45,7 +45,7 @@
             </p>
             <jsp:useBean id="ingredienteDAO" class="br.csi.dao.IngredienteDAO"></jsp:useBean>
 
-            <form  class="text-left" method="post" action="cadastrarPrato">
+            <form  class="text-left" method="get" action="cadastrarPrato">
                 <div class="form-group">
                     <label for="form16">Nome do Prato</label>
                     <input type="text" class="form-control" id="form16" name="nome">
@@ -62,7 +62,7 @@
                     <label for="form21">Ingredientes</label>
                     <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
                         <div class="form-check" >
-                            <input class="form-check-input" type="checkbox" id="form21" value="${ing.id}">${ing.ingrediente}</br>
+                            <input class="form-check-input" type="checkbox" id="form21" name="${ing.ingrediente}" value="${ing.id}"> ${ing.ingrediente} </br>
                         </div>
                     </c:forEach>
                 </div>
