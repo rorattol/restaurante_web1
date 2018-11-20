@@ -24,7 +24,6 @@ import javax.servlet.http.HttpSession;
  */
 //login true = rorattol@gmail.com senha: 123455
 
-
 @WebServlet(urlPatterns = "/loginFunc")
 public class LoginServletFuncionario extends HttpServlet{
 
@@ -33,18 +32,14 @@ public class LoginServletFuncionario extends HttpServlet{
         
         String login = req.getParameter("login"); //nome do name='login' 
         String senha = req.getParameter("senha");
-        
-        System.out.println(login + " - "+ senha);
-        
+
         Funcionario autenticado = new LoginDAO().autenticarFuncionario(login, senha);
+        System.out.println(login + " - "+ senha);
 
         RequestDispatcher disp;
-        
         if(autenticado.getId() != 0){
-            
             HttpSession sessao = req.getSession();
             sessao.setAttribute("logado", autenticado);
-            
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }
@@ -52,7 +47,6 @@ public class LoginServletFuncionario extends HttpServlet{
             req.setAttribute("mensagem", "usuario ou senha incorretos");
             disp = req.getRequestDispatcher("loginFunc.jsp");
             disp.forward(req, resp);
-            
         }
     }
 }

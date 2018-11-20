@@ -17,32 +17,26 @@ public class Redirect extends HttpServlet {
         RequestDispatcher dispatcher;
 
         if( req.getParameter("add").equals("mesa")){
-
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addMesa.jsp");
             dispatcher.forward(req, resp);
-
         }
 
         if( req.getParameter("add").equals("prato")){
-
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addPrato.jsp");
             dispatcher.forward(req, resp);
         }
 
         if( req.getParameter("add").equals("ingrediente")){
-
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addIngrediente.jsp");
             dispatcher.forward(req, resp);
         }
 
         if( req.getParameter("add").equals("cliente")){
-
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addCliente.jsp");
             dispatcher.forward(req, resp);
         }
 
         if( req.getParameter("add").equals("funcionario")){
-
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/addFuncionario.jsp");
             dispatcher.forward(req, resp);
         }

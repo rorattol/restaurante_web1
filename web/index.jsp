@@ -52,7 +52,7 @@
         <div class="py-5" style="">
             <div class="container">
                 <jsp:useBean id="pratoDAO" class="br.csi.dao.PratoDAO"></jsp:useBean>
-                <div class="row">
+
                     <div class="col-md-12">
                         <table class="table">
                             <thead>
@@ -75,7 +75,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
+
         </div>
     </body>
 </html>

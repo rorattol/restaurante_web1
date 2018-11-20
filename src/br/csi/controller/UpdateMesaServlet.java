@@ -42,15 +42,13 @@ public class UpdateMesaServlet extends HttpServlet {
 
         if (realizado) {
 
-            disp = req.getRequestDispatcher("index.jsp");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
 
         } else {
-
-            req.setAttribute("mensagem", "não foi possivel atualizar");
-            disp = req.getRequestDispatcher("reservarMesa.jsp");
+            req.setAttribute("mensagem", "não foi possivel atualizar mesa");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-
         }
     }
 

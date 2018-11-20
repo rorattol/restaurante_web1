@@ -26,13 +26,13 @@ public class UpdateIngredienteServlet extends HttpServlet {
         ing.setId(idIng);
         ing.setNome(ingrediente);
 
-
         boolean retorno = new IngredienteDAO().update(ing);
 
         PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
 
         if (retorno) {
+
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {

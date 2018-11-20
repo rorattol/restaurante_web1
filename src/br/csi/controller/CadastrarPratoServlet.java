@@ -53,23 +53,20 @@ public class CadastrarPratoServlet extends HttpServlet {
                 ingredientesPrato.add(ingrediente);
             }
         }
-
         prato.setIngredientes(ingredientesPrato);
 
         boolean retorno = new PratoDAO().create(prato);
         System.out.println(retorno);
 
-
-        PrintWriter resposta = resp.getWriter();
+        RequestDispatcher disp;
         if (retorno) {
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            req.setAttribute("mensagem", "Prato cadastrado com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
-
-
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

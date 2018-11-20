@@ -29,17 +29,14 @@ public class UpdateFuncionarioServlet extends HttpServlet {
 
         boolean retorno = new FuncionarioDAO().update(func);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
         if (retorno) {
-
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("mensagem", "não foi possivel atualizar Funcionario");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

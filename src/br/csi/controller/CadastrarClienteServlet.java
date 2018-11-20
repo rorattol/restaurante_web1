@@ -34,17 +34,16 @@ public class CadastrarClienteServlet extends HttpServlet {
 
         boolean retorno = new ClienteDAO().create(nome, email, senha, telefone);
 
-        PrintWriter resposta = resp.getWriter();
+        RequestDispatcher disp;
         if (retorno) {
-
-            //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            req.setAttribute("mensagem", "Cliente cadastrado com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
 
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

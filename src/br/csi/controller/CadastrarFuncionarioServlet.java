@@ -28,25 +28,21 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String nome = req.getParameter("nome");
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
-        Funcionario func = new Funcionario();
+
+        Funcionario func = new Funcionario();  //talvez nao necessario
         
         boolean retorno = new FuncionarioDAO().create(nome, email, senha);
-        
-        PrintWriter resposta = resp.getWriter();
-        if(retorno){
 
-            //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+        RequestDispatcher disp;
+        if (retorno) {
+            req.setAttribute("mensagem", "Funcionario cadastrado com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-            
-        }
-        
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
-            
-            
+
+        } else {
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

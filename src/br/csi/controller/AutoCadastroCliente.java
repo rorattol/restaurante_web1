@@ -30,21 +30,20 @@ public class AutoCadastroCliente extends HttpServlet {
         String email = req.getParameter("email");
         String telefone = req.getParameter("telefone");
 
-        Cliente cli = new Cliente();
+        Cliente cli = new Cliente(); //talvez nao necessario
 
         boolean retorno = new ClienteDAO().create(nome, email, senha, telefone);
 
-        PrintWriter resposta = resp.getWriter();
+        RequestDispatcher disp;
         if (retorno) {
-
-            //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("loginCliente.jsp");
+            req.setAttribute("mensagem", "Cadastro realizado com sucesso");
+            disp = req.getRequestDispatcher("loginCliente.jsp");
             disp.forward(req, resp);
 
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("CriarCliente.jsp");
+            disp.forward(req, resp);
         }
     }
 }

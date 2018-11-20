@@ -28,7 +28,7 @@ public class DeleteMesaServlet extends HttpServlet {
         RequestDispatcher disp;
 
         if(retorno) {
-            //DIRECIONAR PARA LISTAR MESAS
+
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

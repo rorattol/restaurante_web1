@@ -31,18 +31,15 @@ public class LoginServletCliente extends HttpServlet{
         
         String login = req.getParameter("login"); //nome do name='login' 
         String senha = req.getParameter("senha");
-        
-        System.out.println(login + " - "+ senha);
 
         boolean autenticado = new LoginDAO().autenticarCliente(login, senha);
+        System.out.println(login + " - "+ senha);
 
         RequestDispatcher disp;
         
         if(autenticado){
-            
             HttpSession sessao = req.getSession();
             sessao.setAttribute("logado", new ClienteDAO().read(login, senha));
-            
             disp = req.getRequestDispatcher("/WEB-INF/views/reservarMesa.jsp");
             disp.forward(req, resp);
         }

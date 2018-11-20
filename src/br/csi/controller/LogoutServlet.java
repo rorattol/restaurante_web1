@@ -19,6 +19,5 @@ public class LogoutServlet extends HttpServlet {
 
         System.out.println("deslogado");
         resp.sendRedirect("index.jsp");
-
     }
 }

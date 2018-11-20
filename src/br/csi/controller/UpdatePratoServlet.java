@@ -33,17 +33,15 @@ public class UpdatePratoServlet extends HttpServlet {
 
         boolean retorno = new PratoDAO().update(prato);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
         if (retorno) {
-
+            req.setAttribute("mensagem", "Prato atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("mensagem", "Não foi possivel atualizar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

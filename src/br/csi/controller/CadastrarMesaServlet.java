@@ -35,18 +35,15 @@ public class CadastrarMesaServlet extends HttpServlet {
         
         boolean retorno = new MesaDAO().create(mesa);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
-        if(retorno) {
-            //DIRECIONAR PARA LISTAR MESAS
+        if (retorno) {
+            req.setAttribute("mensagem", "Mesa cadastrada com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-        }
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+        } else {
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
     

@@ -28,7 +28,6 @@ public class DeleteIngredienteServlet  extends HttpServlet {
         PrintWriter resposta = resp.getWriter();
         if(retorno){
 
-            //DIRECIONAR PARA LISTAR MESAS
             RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
 

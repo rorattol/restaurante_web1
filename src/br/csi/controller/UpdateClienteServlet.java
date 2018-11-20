@@ -32,17 +32,15 @@ public class UpdateClienteServlet extends HttpServlet {
 
         boolean retorno = new ClienteDAO().update(cli);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
         if (retorno) {
-
+            req.setAttribute("mensagem", "Cliente atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("mensagem", "Não foi possivel atualizar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

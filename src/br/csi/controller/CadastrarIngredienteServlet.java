@@ -32,22 +32,17 @@ public class CadastrarIngredienteServlet extends HttpServlet{
         Ingrediente ing = new Ingrediente();
         
         boolean retorno = new IngredienteDAO().create(ingrediente);
-        
-        PrintWriter resposta = resp.getWriter();
-        if(retorno){
 
-            //DIRECIONAR PARA LISTAR MESAS
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+        RequestDispatcher disp;
+        if (retorno) {
+            req.setAttribute("mensagem", "Ingrediente cadastrado com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-            
-        }
-        
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
-            
-            
+
+        } else {
+            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }
