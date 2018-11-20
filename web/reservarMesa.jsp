@@ -31,7 +31,7 @@
                         <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                     </ul>
                     <ul class="navbar-nav">
-                        <li class="nav-item">${logado.nomeFunc}</li>
+                        <li class="nav-item">${logado.nomeCliente}</li>
                         <li class="nav-item"><a class="nav-link text-primary" href="/logout">Sair</a></li>
                     </ul>
                 </div>

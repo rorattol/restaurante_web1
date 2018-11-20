@@ -62,6 +62,7 @@
                                         <th>Nome</th>
                                         <th>Categoria</th>
                                         <th>Descrição</th>
+
                                         <th>Preço</th>
                                         <th>Ações</th>
                                     </tr>

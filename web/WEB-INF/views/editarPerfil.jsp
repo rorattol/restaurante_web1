@@ -45,7 +45,7 @@
                 <div class="form-group">
                     <label for="form16">Nome do Cliente</label>
 
-                    <input type="text" class="form-control" id="form16" value=>
+                    <input type="text" class="form-control" id="form16" value="">
                 </div>
                 <div class="form-group">
                     <label for="form17">Email do Cliente</label>

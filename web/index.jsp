@@ -13,10 +13,10 @@
             <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar6">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbar6"> <a class="navbar-brand text-primary d-none d-md-block" href="#">
+                <div class="collapse navbar-collapse" id="navbar6">
+                    <a class="navbar-brand text-primary d-none d-md-block" href="#">
                         <i class="fa d-inline fa-lg fa-circle"></i>
                         <b> Sistema de reserva de restaurante</b>
-                    <a href="teste.jsp">teste AQUI</a>
                     </a>
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
