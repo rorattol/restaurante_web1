@@ -8,7 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-    <head>
+    <head><meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="theme.css" type="text/css">
         <title>Title</title>
     </head>
     <body>
@@ -36,7 +40,7 @@
             </nav>
             <div class="row" >
                 <div class="mx-auto col-lg-6 col-10">
-                    <h1>Editar/Add Cliente</h1>
+                    <h1>Editar Cliente</h1>
                     <p class="mb-3">
                         When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
                     </p>
@@ -44,15 +48,19 @@
                     <form class="text-left" method="post" action="updateCliente">
                         <div class="form-group">
                             <label for="form16">Nome do Cliente</label>
-                            <input type="text" class="form-control" id="form16" value="${cliente.nome}">
+                            <input type="text" class="form-control" id="form16" name="nome" value="${cliente.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Cliente</label>
-                            <input type="email" class="form-control" id="form17" value="${cliente.email}">
+                            <input type="email" class="form-control" id="form17" name="email" value="${cliente.email}">
+                        </div>
+                        <div class="form-group">
+                            <label for="form19">Senha do Cliente</label>
+                            <input type="password" class="form-control" id="form19" name="senha" value="${cliente.senha}">
                         </div>
                         <div class="form-group">
                             <label for="form18">Telefone do Cliente</label>
-                            <input type="text" class="form-control" id="form18" value="${cliente.telefone}">
+                            <input type="text" class="form-control" id="form18" name="telefone" value="${cliente.telefone}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

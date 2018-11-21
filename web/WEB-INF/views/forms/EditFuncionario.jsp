@@ -47,11 +47,15 @@
                     <form class="text-left" method="post" action="updateFunc">
                         <div class="form-group">
                             <label for="form16">Nome do Funcionário</label>
-                            <input type="text" class="form-control" id="form16" value="${funcionario.nome}">
+                            <input type="text" class="form-control" id="form16" name="nome" value="${funcionario.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Funcionário</label>
-                            <input type="text" class="form-control" id="form17" value="#{funcionario.email}">
+                            <input type="text" class="form-control" id="form17" name="email" value="#{funcionario.email}">
+                        </div>
+                        <div class="form-group">
+                            <label for="form18">Email do Funcionário</label>
+                            <input type="password" class="form-control" id="form18" name="senha" value="#{funcionario.senha}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

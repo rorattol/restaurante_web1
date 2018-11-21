@@ -51,6 +51,12 @@
                 <jsp:useBean id="mesaDAO" class="br.csi.dao.MesaDAO"></jsp:useBean>
                 <div class="row">
                     <div class="col-md-12">
+                        <c:if test="${not empty sucesso}">
+                            <h3><strong style="color:green">${sucesso}</strong></h3>
+                        </c:if>
+                        <c:if test="${not empty erro}">
+                            <h3><strong style="color:red">${erro}</strong></h3>
+                        </c:if>
                         <table class="table">
                             <thead>
                             <tr>

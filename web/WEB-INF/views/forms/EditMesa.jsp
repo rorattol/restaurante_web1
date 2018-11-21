@@ -45,21 +45,20 @@
                     <form class="text-left" method="post" action="updateMesa">
                         <div class="form-group">
                             <label for="form16">Número Mesa</label>
-                            <input type="text" class="form-control" id="form16" value="${mesa.numMesa}">
+                            <input type="text" class="form-control" id="form16" name="numMesa" value="${mesa.numMesa}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Quantidade Lugares</label>
-                            <input type="number" class="form-control" id="form17" value="${mesa.lugares}">
+                            <input type="number" class="form-control" id="form17" name="lugares" value="${mesa.lugares}">
                         </div>
                         <div class="form-group">
                             <label >Esta reservado?</label>
                             <c:if test="${mesa.reservado == false}">
                                 <a class="btn btn-primary ">Reservar</a>
-                                <a class="btn btn-danger disabled">Disponivel</a>
                             </c:if>
                             <c:if test="${mesa.reservado == true}">
-                                <a class="btn btn-primary disabled">Disponibilizar </a>
-                                <a class="btn btn-danger">Reservado</a>
+                                <a class="btn btn-danger">Disponibilizar </a>
+
                             </c:if>
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>

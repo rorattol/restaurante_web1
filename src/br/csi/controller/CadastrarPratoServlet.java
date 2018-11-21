@@ -60,11 +60,11 @@ public class CadastrarPratoServlet extends HttpServlet {
 
         RequestDispatcher disp;
         if (retorno) {
-            req.setAttribute("mensagem", "Prato cadastrado com sucesso");
+            req.setAttribute("sucesso", "Prato cadastrado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            req.setAttribute("erro", "Não foi possivel realizar cadastro");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

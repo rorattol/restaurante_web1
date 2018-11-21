@@ -17,6 +17,18 @@ public class Cliente {
     private String email;
     private String telefone;
 
+    public Cliente(int id, String nome, String senha, String email, String telefone) {
+        this.id = id;
+        this.nome = nome;
+        this.senha = senha;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public Cliente(){
+
+    }
+
     public int getId() {
         return id;
     }

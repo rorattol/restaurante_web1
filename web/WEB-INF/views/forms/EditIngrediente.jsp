@@ -45,7 +45,7 @@
                     <form class="text-left" method="post" action="updateIngrediente">
                         <div class="form-group">
                             <label for="form16">Nome do Ingrediente<br></label>
-                            <input type="text" class="form-control" id="form16" value="${nome.nome}">
+                            <input type="text" class="form-control" id="form16" name="nome" value="${ingrediente.nome}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

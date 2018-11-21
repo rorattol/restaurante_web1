@@ -16,10 +16,10 @@ import java.io.PrintWriter;
 public class UpdateIngredienteServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("id");
-        String ingrediente = req.getParameter("ingrediente");
+        String ingrediente = req.getParameter("nome");
         int idIng = Integer.parseInt(id);
 
         Ingrediente ing = new Ingrediente();
@@ -28,17 +28,15 @@ public class UpdateIngredienteServlet extends HttpServlet {
 
         boolean retorno = new IngredienteDAO().update(ing);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
         if (retorno) {
-
+            req.setAttribute("sucesso", "Ingrediente atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("erro", "Não foi possivel atualizar Ingrediente");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

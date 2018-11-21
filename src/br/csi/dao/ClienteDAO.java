@@ -56,10 +56,10 @@ public class ClienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
-                c.setNome(rs.getString("nome"));
-                c.setEmail(rs.getString("email"));
-                c.setSenha(rs.getString("senha"));
-                c.setTelefone(rs.getString("telefone"));
+                c.setNome(rs.getString("nom_cliente"));
+                c.setEmail(rs.getString("email_cliente"));
+                c.setSenha(rs.getString("senha_cliente"));
+                c.setTelefone(rs.getString("tel_cliente"));
                 return c;
             }
         } catch (SQLException ex) {
@@ -107,9 +107,8 @@ public class ClienteDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
         return retorno;
-    }//PRONTO
+    }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
@@ -123,7 +122,7 @@ public class ClienteDAO {
             ex.printStackTrace();
         }
         return retorno;
-    }//PRONTO
+    }
 
     public ArrayList<Cliente> getClientes() {
         ArrayList<Cliente> usuarios = new ArrayList<>();

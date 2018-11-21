@@ -16,29 +16,26 @@ import java.io.PrintWriter;
 public class UpdateClienteServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String id1 = req.getParameter("id");
         String nome = req.getParameter("nome");
         String senha = req.getParameter("senha");
         String email = req.getParameter("email");
         String telefone = req.getParameter("telefone");
+        int id = Integer.parseInt(id1);
 
-        Cliente cli = new Cliente();
-
-        cli.setNome(nome);
-        cli.setSenha(senha);
-        cli.setEmail(email);
-        cli.setTelefone(telefone);
+        Cliente cli = new Cliente(id, nome, senha, email, telefone);
 
         boolean retorno = new ClienteDAO().update(cli);
 
         RequestDispatcher disp;
         if (retorno) {
-            req.setAttribute("mensagem", "Cliente atualizado com sucesso");
+            req.setAttribute("sucesso", "Cliente atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            req.setAttribute("mensagem", "Não foi possivel atualizar");
+            req.setAttribute("erro", "Não foi possivel atualizar");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

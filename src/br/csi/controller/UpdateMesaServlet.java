@@ -15,7 +15,7 @@ import java.io.IOException;
 public class UpdateMesaServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("idMesa");
         String reserv = req.getParameter("reservado");
@@ -37,16 +37,13 @@ public class UpdateMesaServlet extends HttpServlet {
         boolean realizado = new MesaDAO().update(mesa);
 
         RequestDispatcher disp;
-
-        //VERIFICAR SE É USUARIO OU FUNCIONARIO CADASTRADO
-
         if (realizado) {
-
+            req.setAttribute("sucesso", "Mesa atualizada com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
 
         } else {
-            req.setAttribute("mensagem", "não foi possivel atualizar mesa");
+            req.setAttribute("erro", "Nnão foi possivel atualizar mesa");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

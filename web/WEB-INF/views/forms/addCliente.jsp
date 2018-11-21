@@ -50,19 +50,19 @@
                 <div class="form-group">
                     <label for="form16">Nome do Cliente</label>
 
-                    <input type="text" class="form-control" id="form16" value="nome">
+                    <input type="text" class="form-control" id="form16" name="nome">
                 </div>
                 <div class="form-group">
                     <label for="form17">Email do Cliente</label>
-                    <input type="email" class="form-control" id="form17" value="email">
+                    <input type="email" class="form-control" id="form17" name="email">
                 </div>
                 <div class="form-group">
                     <label for="form18">Email do Cliente</label>
-                    <input type="password" class="form-control" id="form18" value="password">
+                    <input type="password" class="form-control" id="form18" name="senha">
                 </div>
                 <div class="form-group">
                     <label for="form19">Telefone do Cliente</label>
-                    <input type="text" class="form-control" id="form19" value="telefone">
+                    <input type="text" class="form-control" id="form19" name="telefone">
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>

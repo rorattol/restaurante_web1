@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ReservaMesaServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("idMesa");
         String reserv = req.getParameter("reservado");
@@ -27,7 +27,6 @@ public class ReservaMesaServlet extends HttpServlet {
         int lugares = Integer.parseInt(lug);
         Boolean reservado = Boolean.parseBoolean(reserv);
 
-
         Mesa mesa = new Mesa();
         mesa.setId(idMesa);
         mesa.setNumMesa(numMesa);
@@ -37,16 +36,14 @@ public class ReservaMesaServlet extends HttpServlet {
         boolean realizado = new MesaDAO().update(mesa);
 
         RequestDispatcher disp;
-
         if (realizado) {
+            req.setAttribute("sucesso", "Mesa reservada com sucesso");
             disp = req.getRequestDispatcher("reservarMesa.jsp");
             disp.forward(req, resp);
         } else {
-            req.setAttribute("mensagem", "Não foi possivel atualizar");
+            req.setAttribute("erro", "Não foi possivel atualizar");
             disp = req.getRequestDispatcher("reservarMesa.jsp");
             disp.forward(req, resp);
         }
     }
-
-
 }

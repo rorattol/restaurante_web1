@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 public class UpdatePratoServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Prato prato = new Prato();
         String nome = req.getParameter("nome");
@@ -35,11 +35,11 @@ public class UpdatePratoServlet extends HttpServlet {
 
         RequestDispatcher disp;
         if (retorno) {
-            req.setAttribute("mensagem", "Prato atualizado com sucesso");
+            req.setAttribute("sucesso", "Prato atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            req.setAttribute("mensagem", "Não foi possivel atualizar");
+            req.setAttribute("erro", "Não foi possivel atualizar");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

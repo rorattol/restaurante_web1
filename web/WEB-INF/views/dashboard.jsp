@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="theme.css" type="text/css">
     </head>
     <body>
@@ -37,6 +38,29 @@
                     </ul>
                 </div>
             </nav>
+
+
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title">Exclusão</h3>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">x</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Tem certeza que deseja excluir ${prato.nome} ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="deletePrato?cod=${prato.id}" class="btn btn-danger">Excluir</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="py-5" style="">
                 <div class="container">
                     <div class="row">
@@ -53,6 +77,12 @@
                             <jsp:useBean id="usuarioDAO" class="br.csi.dao.ClienteDAO"></jsp:useBean>
 
 
+                            <c:if test="${not empty sucesso}">
+                            <h3><strong style="color:green">${sucesso}</strong></h3>
+                            </c:if>
+                            <c:if test="${not empty erro}">
+                                <h3><strong style="color:red">${erro}</strong></h3>
+                            </c:if>
                             <h2>Pratos</h2>
                             <a href="redirect?add=prato" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
@@ -62,7 +92,6 @@
                                         <th>Nome</th>
                                         <th>Categoria</th>
                                         <th>Descrição</th>
-
                                         <th>Preço</th>
                                         <th>Ações</th>
                                     </tr>
@@ -76,7 +105,8 @@
                                         <td>${prato.descricao}</td>
                                         <td>${prato.preco}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-cod="${prato.id}" >teste</button>
+                                            <%--<a href="#" class="btn btn-danger" role="button" data-target="#deletaPrato">Delete</a>--%>
                                             <a href="update?item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
@@ -120,7 +150,7 @@
                             <hr>
 
                             <h2>Ingrediente</h2>
-                            <a href="redirect?add=nome" class="btn btn-primary" role="button">Add</a>
+                            <a href="redirect?add=ingrediente" class="btn btn-primary" role="button">Add</a>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -136,7 +166,7 @@
                                         <td>${ing.nome}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update?item=nome&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -190,7 +220,7 @@
                                         <td>${usuario.telefone}</td>
                                         <td>
                                             <a href="#" class="btn btn-danger" role="button">Delete</a>
-                                            <a href="update?item=usuario&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
+                                            <a href="update?item=cliente&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -201,5 +231,16 @@
                 </div>
             </div>
         </div>
+<script type="text/javascript">
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('cod') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+    })
+</script>
+
     </body>
 </html>

@@ -21,8 +21,6 @@ public class DeleteIngredienteServlet  extends HttpServlet {
         String idIng = req.getParameter("id");
         int id = Integer.parseInt(idIng);
 
-        Ingrediente ing = new Ingrediente();
-
         boolean retorno = new IngredienteDAO().delete(id);
 
         PrintWriter resposta = resp.getWriter();
@@ -30,15 +28,12 @@ public class DeleteIngredienteServlet  extends HttpServlet {
 
             RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-
         }
 
         else{
             resposta.println("<html><body>");
             resposta.println("<strong>ERRO</strong>");
             resposta.println("</body></html>");
-
-
         }
     }
 }

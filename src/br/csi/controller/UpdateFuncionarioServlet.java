@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 public class UpdateFuncionarioServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String nome = req.getParameter("nome");
         String email = req.getParameter("email");
@@ -31,10 +31,11 @@ public class UpdateFuncionarioServlet extends HttpServlet {
 
         RequestDispatcher disp;
         if (retorno) {
+            req.setAttribute("sucesso", "Funcionario atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         } else {
-            req.setAttribute("mensagem", "não foi possivel atualizar Funcionario");
+            req.setAttribute("erro", "Não foi possivel atualizar Funcionario");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }

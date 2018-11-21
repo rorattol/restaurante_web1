@@ -29,18 +29,17 @@ public class CadastrarIngredienteServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     
         String ingrediente = req.getParameter("ingrediente");
-        Ingrediente ing = new Ingrediente();
         
         boolean retorno = new IngredienteDAO().create(ingrediente);
 
         RequestDispatcher disp;
         if (retorno) {
-            req.setAttribute("mensagem", "Ingrediente cadastrado com sucesso");
+            req.setAttribute("sucesso", "Ingrediente cadastrado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
 
         } else {
-            req.setAttribute("mensagem", "Não foi possivel realizar cadastro");
+            req.setAttribute("erro", "Não foi possivel realizar cadastro");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
         }
