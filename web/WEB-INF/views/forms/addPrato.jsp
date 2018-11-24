@@ -48,15 +48,15 @@
             <form  class="text-left" method="get" action="cadastrarPrato">
                 <div class="form-group">
                     <label for="form16">Nome do Prato</label>
-                    <input type="text" class="form-control" id="form16" name="nome">
+                    <input type="text" class="form-control" id="form16" name="nome" required>
                 </div>
                 <div class="form-group">
                     <label for="form17">Categoria do Prato</label>
-                    <input type="text" class="form-control" id="form17" name="categoria">
+                    <input type="text" class="form-control" id="form17" name="categoria" required>
                 </div>
                 <div class="form-group">
                     <label for="form18">Descrição do Prato</label>
-                    <input type="text" class="form-control" id="form18" name="descricao">
+                    <input type="text" class="form-control" id="form18" name="descricao" required>
                 </div>
                 <div class="form-group">
                     <label for="form21">Ingredientes</label>
@@ -69,7 +69,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="form20">Preço</label>
-                        <input type="text" class="form-control" id="form20" name="preco">
+                        <input type="text" class="form-control" id="form20" name="preco" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>

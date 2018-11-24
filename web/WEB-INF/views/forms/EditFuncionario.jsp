@@ -41,21 +41,20 @@
             <div class="row" >
                 <div class="mx-auto col-lg-6 col-10">
                     <h1>Editar Funcionário</h1>
-                    <p class="mb-3">
-                        When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
-                    </p>
+
                     <form class="text-left" method="post" action="updateFunc">
+                        <input type="hidden" name="id" value="${funcionario.id}">
                         <div class="form-group">
                             <label for="form16">Nome do Funcionário</label>
                             <input type="text" class="form-control" id="form16" name="nome" value="${funcionario.nome}">
                         </div>
                         <div class="form-group">
                             <label for="form17">Email do Funcionário</label>
-                            <input type="text" class="form-control" id="form17" name="email" value="#{funcionario.email}">
+                            <input type="email" class="form-control" id="form17" name="email" value="${funcionario.email}">
                         </div>
                         <div class="form-group">
-                            <label for="form18">Email do Funcionário</label>
-                            <input type="password" class="form-control" id="form18" name="senha" value="#{funcionario.senha}">
+                            <label for="form18">Senha do Funcionário</label>
+                            <input type="password" class="form-control" id="form18" name="senha" value="${funcionario.senha}">
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>
                     </form>

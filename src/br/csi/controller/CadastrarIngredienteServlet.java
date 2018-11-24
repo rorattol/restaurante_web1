@@ -28,7 +28,7 @@ public class CadastrarIngredienteServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     
-        String ingrediente = req.getParameter("ingrediente");
+        String ingrediente = req.getParameter("nome");
         
         boolean retorno = new IngredienteDAO().create(ingrediente);
 

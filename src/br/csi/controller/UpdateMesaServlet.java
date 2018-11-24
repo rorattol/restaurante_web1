@@ -17,7 +17,7 @@ public class UpdateMesaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String id = req.getParameter("idMesa");
+        String id = req.getParameter("id");
         String reserv = req.getParameter("reservado");
         String num = req.getParameter("numMesa");
         String lug = req.getParameter("lugares");
@@ -27,12 +27,11 @@ public class UpdateMesaServlet extends HttpServlet {
         int lugares = Integer.parseInt(lug);
         Boolean reservado = Boolean.parseBoolean(reserv);
 
-
         Mesa mesa = new Mesa();
         mesa.setId(idMesa);
         mesa.setNumMesa(numMesa);
         mesa.setLugares(lugares);
-        mesa.setReservado(!reservado);
+        mesa.setReservado(reservado);
 
         boolean realizado = new MesaDAO().update(mesa);
 

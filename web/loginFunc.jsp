@@ -42,13 +42,13 @@
             <div class="container">
                 <div class="row">
                     <div class="mx-auto col-md-6 col-10 bg-white p-5">
-                        <h1 class="mb-4">Log in Area xgdfgdfgdfgf</h1>
+                        <h1 class="mb-4">Log in Area Funcionário</h1>
                         <form action="loginFunc" method="post">
                             <div class="form-group"> 
-                                <input type="email" class="form-control" placeholder="Digite seu email" name="login"> 
+                                <input type="email" class="form-control" placeholder="Digite seu email" name="login" required>
                             </div>
                             <div class="form-group mb-3"> 
-                                <input type="password" class="form-control" placeholder="Password" name="senha"> 
+                                <input type="password" class="form-control" placeholder="Password" name="senha" required>
                                 <small class="form-text text-muted text-right"></small> 
                             </div> 
                             <button type="submit" class="btn btn-primary">Submit</button>

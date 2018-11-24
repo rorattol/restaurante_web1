@@ -16,14 +16,6 @@ public class Mesa {
     private int lugares;
     private boolean reservado;
 
-    public Mesa() {
-    }
-
-    public Mesa(int numMesa, int lugares) {
-        this.numMesa = numMesa;
-        this.lugares = lugares;
-    }
-
     public int getId() {
         return id;
     }

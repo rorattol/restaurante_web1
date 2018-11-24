@@ -45,10 +45,10 @@
                         <h1 class="mb-4">Log in Clientes</h1>
                         <form action="loginCliente" method="post">
                             <div class="form-group"> 
-                                <input type="email" class="form-control" placeholder="Digite seu email" name="login"> 
+                                <input type="email" class="form-control" placeholder="Digite seu email" name="login" required>
                             </div>
                             <div class="form-group mb-3"> 
-                                <input type="password" class="form-control" placeholder="Password" name="senha"> 
+                                <input type="password" class="form-control" placeholder="Password" name="senha" required>
                                 <small class="form-text text-muted text-right"></small> 
                             </div>
                             <a href="CriarCliente.jsp">Ainda não é cadastrado?</a>

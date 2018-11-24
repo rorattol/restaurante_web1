@@ -37,28 +37,25 @@
     <div class="row" >
         < class="mx-auto col-lg-6 col-10">
             <h1>Editar Perfil</h1>
-            <p class="mb-3">
-                When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
-            </p>
 
             <form class="text-left" method="post" action="cadastrarUsuario">
                 <div class="form-group">
                     <label for="form16">Nome do Cliente</label>
 
-                    <input type="text" class="form-control" id="form16" value="">
+                    <input type="text" class="form-control" id="form16" value=">${logado.nome}" required>
                 </div>
                 <div class="form-group">
                     <label for="form17">Email do Cliente</label>
-                    <input type="email" class="form-control" id="form17">
+                    <input type="email" class="form-control" id="form17" value=">${logado.email}" required>
                 </div>
                 <div class="form-group">
                     <label for="form18">Telefone do Cliente</label>
-                    <input type="text" class="form-control" id="form18">
+                    <input type="text" class="form-control" id="form18" value=">${logado.telefone}" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6" >
-                        <label for="form19">Alterar Senha</label>
-                        <input type="password" class="form-control" id="form19">
+                        <label for="form19">Alterar Senha(caso desejar manter a mesma senha, não altere esse campo)</label>
+                        <input type="password" class="form-control" id="form19" value=">${logado.senha}" required>
                     </div>
             <!--    <div class="form-group col-md-6">
                         <label for="form20">Confirme sua Nova Senha</label>

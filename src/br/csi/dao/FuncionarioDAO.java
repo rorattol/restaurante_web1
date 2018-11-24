@@ -56,7 +56,8 @@ public class FuncionarioDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Funcionario f = new Funcionario();
-                f.setNome(rs.getString("nome_func"));
+                f.setId(rs.getInt("id_func"));
+                f.setNome(rs.getString("nom_func"));
                 f.setEmail(rs.getString("email_func"));
                 f.setSenha(rs.getString("senha_func"));
                 return f;
@@ -65,28 +66,6 @@ public class FuncionarioDAO {
             ex.printStackTrace();
         }
         return null;
-    }
-
-    public Funcionario read(String email, String senha) {
-        Funcionario f = new Funcionario();
-        try (Connection conn = new ConectaDB_postgres().getConexao()) {
-
-            sql = "SELECT * FROM funcionario WHERE email_func = ? and senha_func = ?;";
-            pre = conn.prepareStatement(sql);
-            pre.setString(1, email);
-            pre.setString(2, senha);
-            rs = pre.executeQuery();
-            while (rs.next()) {
-
-                f.setNome(rs.getString("nome"));
-                f.setEmail(rs.getString("email"));
-                f.setSenha(rs.getString("senha"));
-
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return f;
     }
 
     public boolean update(Funcionario funcionario) {

@@ -41,8 +41,8 @@
             <div class="row">
                 <div class="mx-auto col-lg-6 col-10">
                     <h1>Editar Mesa</h1>
-                    <p class="mb-3">When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.</p>
                     <form class="text-left" method="post" action="updateMesa">
+                        <input type="hidden" name="id" value="${mesa.id}">
                         <div class="form-group">
                             <label for="form16">Número Mesa</label>
                             <input type="text" class="form-control" id="form16" name="numMesa" value="${mesa.numMesa}">
@@ -53,12 +53,18 @@
                         </div>
                         <div class="form-group">
                             <label >Esta reservado?</label>
+
                             <c:if test="${mesa.reservado == false}">
-                                <a class="btn btn-primary ">Reservar</a>
+                                <select name="reservado" >
+                                    <option value="false">Não</option>
+                                    <option value="true">Sim</option>
+                                </select>
                             </c:if>
                             <c:if test="${mesa.reservado == true}">
-                                <a class="btn btn-danger">Disponibilizar </a>
-
+                                <select name="reservado" >
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
                             </c:if>
                         </div>
                         <button type="submit" class="btn btn-primary">Editar</button>

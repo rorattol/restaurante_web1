@@ -42,7 +42,6 @@ public class PratoDAO {
             rs = pre.getGeneratedKeys();
             rs.next();
 
-            
             if (rs.getInt(1) > 0) {
                 
                 for(Ingrediente ing : prato.getIngredientes()){
@@ -72,6 +71,7 @@ public class PratoDAO {
             pre.setInt(1, id);
             rs = pre.executeQuery();
             while (rs.next()) {
+                p.setId(rs.getInt("id_prato"));
                 p.setNome(rs.getString("nom_prato"));
                 p.setCategoria(rs.getString("categoria_prato"));
                 p.setDescricao(rs.getString("descricao_prato"));
@@ -100,7 +100,6 @@ public class PratoDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
         return retorno;
     }
 
@@ -143,5 +142,4 @@ public class PratoDAO {
         }
         return pratos;
     }
-
 }

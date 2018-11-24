@@ -50,6 +50,7 @@ public class IngredienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Ingrediente ing = new Ingrediente();
+                ing.setId(rs.getInt("id_ingrediente"));
                 ing.setNome(rs.getString("nom_ingrediente"));
                 return ing;
             }
@@ -65,7 +66,7 @@ public class IngredienteDAO {
             sql = "UPDATE ingrediente SET nom_ingrediente = ? WHERE id_ingrediente = ?;";
             pre = conn.prepareStatement(sql);
             pre.setString(1, ingrediente.getNome());
-            pre.setInt(5, ingrediente.getId());
+            pre.setInt(2, ingrediente.getId());
             if (pre.executeUpdate() > 0) {
                 retorno = true;
             }
@@ -74,7 +75,7 @@ public class IngredienteDAO {
         }
 
         return retorno;
-    }//PRONTO
+    }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
@@ -89,7 +90,7 @@ public class IngredienteDAO {
             ex.printStackTrace();
         }
         return retorno;
-    }//PRONTO
+    }
 
     public ArrayList<Ingrediente> getIngredientes() {
 
@@ -101,10 +102,8 @@ public class IngredienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Ingrediente ing = new Ingrediente();
-
                 ing.setId(rs.getInt("id_ingrediente"));
                 ing.setNome(rs.getString("nom_ingrediente"));
-
                 ingredientes.add(ing);
             }
         } catch (SQLException ex) {

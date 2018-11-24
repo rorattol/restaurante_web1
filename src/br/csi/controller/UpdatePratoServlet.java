@@ -19,13 +19,16 @@ public class UpdatePratoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Prato prato = new Prato();
+        String id1 = req.getParameter("id");
         String nome = req.getParameter("nome");
         String categoria = req.getParameter("categoria");
         String descricao = req.getParameter("descricao");
         String preco1 = req.getParameter("preco");
 
-        Float preco = Float.parseFloat(preco1);
+        int id = Integer.parseInt(id1);
+        float preco = Float.parseFloat(preco1);
 
+        prato.setId(id);
         prato.setNome(nome);
         prato.setCategoria(categoria);
         prato.setDescricao(descricao);

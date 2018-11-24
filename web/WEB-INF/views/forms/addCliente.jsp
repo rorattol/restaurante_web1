@@ -41,28 +41,25 @@
     </nav>
     <div class="row" >
         <div class="mx-auto col-lg-6 col-10">
-            <h1>Editar/Add Cliente</h1>
-            <p class="mb-3">
-                When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
-            </p>
+            <h1>Adicionar Cliente</h1>
 
             <form class="text-left" method="post" action="cadastrarUsuario">
                 <div class="form-group">
                     <label for="form16">Nome do Cliente</label>
 
-                    <input type="text" class="form-control" id="form16" name="nome">
+                    <input type="text" class="form-control" id="form16" name="nome" required>
                 </div>
                 <div class="form-group">
                     <label for="form17">Email do Cliente</label>
-                    <input type="email" class="form-control" id="form17" name="email">
+                    <input type="email" class="form-control" id="form17" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="form18">Email do Cliente</label>
-                    <input type="password" class="form-control" id="form18" name="senha">
+                    <label for="form18">Senha do Cliente</label>
+                    <input type="password" class="form-control" id="form18" name="senha" required>
                 </div>
                 <div class="form-group">
                     <label for="form19">Telefone do Cliente</label>
-                    <input type="text" class="form-control" id="form19" name="telefone">
+                    <input type="text" class="form-control" id="form19" name="telefone" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>

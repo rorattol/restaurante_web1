@@ -18,11 +18,14 @@ public class UpdateFuncionarioServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        String id1 = req.getParameter("id");
         String nome = req.getParameter("nome");
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
-        Funcionario func = new Funcionario();
+        int id = Integer.parseInt(id1);
 
+        Funcionario func = new Funcionario();
+        func.setId(id);
         func.setNome(nome);
         func.setSenha(senha);
         func.setEmail(email);

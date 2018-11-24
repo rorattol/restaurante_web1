@@ -48,20 +48,20 @@
                         <form class="text-left" action="cadastroUsuario" method="post">
                             <div class="form-group">
                                 <label for="form16">Seu nome</label>
-                                <input type="text" class="form-control" id="form16" name="nome" placeholder="Nome Sobrenome">
+                                <input type="text" class="form-control" id="form16" name="nome" placeholder="Nome Sobrenome" required>
                             </div>
                             <div class="form-group">
                                 <label for="form18">Seu email</label>
-                                <input type="email" class="form-control" name="email" id="form18" placeholder="exemplo@exemplo.com">
+                                <input type="email" class="form-control" name="email" id="form18" placeholder="exemplo@exemplo.com" required>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="form19">Senha</label>
-                                    <input type="password" class="form-control" id="form19" name="senha" placeholder="••••">
+                                    <input type="password" class="form-control" id="form19" name="senha" placeholder="••••" required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="form20">Telefone</label>
-                                    <input type="text" class="form-control" id="form20" name="telefone" placeholder="(99)99999-9999">
+                                    <input type="text" class="form-control" id="form20" name="telefone" placeholder="(99)99999-9999" required>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Cadastrar<br></button>

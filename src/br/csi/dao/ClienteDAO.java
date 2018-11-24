@@ -56,6 +56,7 @@ public class ClienteDAO {
             rs = pre.executeQuery();
             while (rs.next()) {
                 Cliente c = new Cliente();
+                c.setId(rs.getInt("id_cliente"));
                 c.setNome(rs.getString("nom_cliente"));
                 c.setEmail(rs.getString("email_cliente"));
                 c.setSenha(rs.getString("senha_cliente"));
@@ -94,7 +95,6 @@ public class ClienteDAO {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 
             sql = "UPDATE cliente SET nom_cliente = ?, email_cliente = ?, senha_cliente = ?, tel_cliente = ? WHERE id_cliente = ?;";
-
             pre = conn.prepareStatement(sql);
             pre.setString(1, cliente.getNome());
             pre.setString(2, cliente.getEmail());
@@ -148,5 +148,5 @@ public class ClienteDAO {
         }
 
         return usuarios;
-    }//fim getClientes
+    }
 }

@@ -39,9 +39,7 @@ public class MesaDAO {
             pre.setBoolean(3, false);
             pre.executeUpdate();
 
-            if (pre.executeUpdate() > 0) {
-                retorno = true;
-            }
+            retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -88,7 +86,7 @@ public class MesaDAO {
         }
 
         return retorno;
-    }//PRONTO
+    }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
@@ -102,7 +100,7 @@ public class MesaDAO {
             ex.printStackTrace();
         }
         return retorno;
-    }//PRONTO
+    }
 
     public ArrayList<Mesa> getMesas() {
 
@@ -127,5 +125,4 @@ public class MesaDAO {
         }
         return mesas;
     }
-
 }

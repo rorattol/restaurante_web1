@@ -48,15 +48,15 @@
             <form class="text-left" method="post" action="cadastrarFuncionario">
                 <div class="form-group">
                     <label for="form16">Nome do Funcionário</label>
-                    <input type="text" class="form-control" id="form16" name="nome">
+                    <input type="text" class="form-control" id="form16" name="nome" required>
                 </div>
                 <div class="form-group">
                     <label for="form17">Email do Funcionário</label>
-                    <input type="text" class="form-control" id="form17" name="email">
+                    <input type="text" class="form-control" id="form17" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="form18">Senha do Funcionário</label>
-                    <input type="password" class="form-control" id="form18" name="senha">
+                    <input type="password" class="form-control" id="form18" name="senha" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>

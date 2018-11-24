@@ -42,31 +42,15 @@
     <div class="row">
         <div class="mx-auto col-lg-6 col-10">
             <h1>Editar Mesa</h1>
-            <p class="mb-3">
-                When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees.
-            </p>
-            <jsp:useBean id="mesaDAO" class="br.csi.dao.MesaDAO"></jsp:useBean>
             <form class="text-left" method="post" action="cadastrarMesa">
                 <div class="form-group">
                     <label for="form16">Número Mesa</label>
-                    <input type="number" class="form-control" id="form16" name="numero">
+                    <input type="number" class="form-control" id="form16" name="numero" required>
                 </div>
                 <div class="form-group">
                     <label for="form17">Quantidade Lugares</label>
-                    <input type="number" class="form-control" id="form17" name="lugares">
+                    <input type="number" class="form-control" id="form17" name="lugares" required>
                 </div>
-                <%--nao é necessario esse trecho pq na hora da criação, a mesa estará automaticamente disponivel--%>
-                <%--<div class="form-group">--%>
-                    <%--<label >Esta reservado?</label>--%>
-                    <%--<c:if test="${mesa.reservado == false}">--%>
-                        <%--<a class="btn btn-primary ">Reservar</a>--%>
-                        <%--<a class="btn btn-danger disabled">Disponivel</a>--%>
-                    <%--</c:if>--%>
-                    <%--<c:if test="${mesa.reservado == true}">--%>
-                        <%--<a class="btn btn-primary disabled">Disponibilizar </a>--%>
-                        <%--<a class="btn btn-danger">Reservado</a>--%>
-                    <%--</c:if>--%>
-                <%--</div>--%>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
             </form>
         </div>
