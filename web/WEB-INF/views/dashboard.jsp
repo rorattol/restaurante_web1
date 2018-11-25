@@ -28,9 +28,9 @@
                         <b> Sistema de reserva de restaurante</b>
                     </a>
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"></a></li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">${logado.nome}</li>
@@ -38,29 +38,6 @@
                     </ul>
                 </div>
             </nav>
-
-
-            <div class="modal fade" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h3 class="modal-title">Exclusão</h3>
-                            <button type="button" class="close" data-dismiss="modal">
-                                <span aria-hidden="true">x</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>Tem certeza que deseja excluir ${prato.nome} ?</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="deletePrato?cod=${prato.id}" class="btn btn-danger">Excluir</a>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="py-5" style="">
                 <div class="container">
                     <div class="row">
@@ -105,11 +82,32 @@
                                         <td>${prato.descricao}</td>
                                         <td>${prato.preco}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-cod="${prato.id}" >teste</button>
-                                            <%--<a href="#" class="btn btn-danger" role="button" data-target="#deletaPrato">Delete</a>--%>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#pratoModal" data-whatever="${prato.id}" >Deletar</button>
                                             <a href="update?item=prato&&id=${prato.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="pratoModal" tabindex="-1" role="dialog" aria-labelledby="pratoModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Exclusão</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="deletePrato">
+                                                    <div class="modal-body">
+                                                        <p>Tem certeza que deseja excluir prato?</p>
+                                                        <input type="hidden" class="form-control"  name="id" id="prato">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Excluir</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </table>
                             <hr>
@@ -126,7 +124,6 @@
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
-
                                 <c:forEach var="mesa" items="${mesaDAO.mesas}">
                                     <tr>
                                         <td>${mesa.id}</td>
@@ -141,10 +138,32 @@
                                             </td>
                                         </c:if>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#mesaModal" data-whatever="${mesa.id}" >Deletar</button>
                                             <a href="update?item=mesa&&id=${mesa.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="mesaModal" tabindex="-1" role="dialog" aria-labelledby="mesaModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Exclusão</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="deleteMesa">
+                                                    <div class="modal-body">
+                                                        <p>Tem certeza que deseja excluir essa mesa?</p>
+                                                        <input type="hidden" class="form-control"  name="id" id="mesa">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Excluir</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </table>
                             <hr>
@@ -165,10 +184,32 @@
                                         <td>${ing.id}</td>
                                         <td>${ing.nome}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ingModal" data-whatever="${ing.id}" >Deletar</button>
                                             <a href="update?item=ingrediente&&id=${ing.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="ingModal" tabindex="-1" role="dialog" aria-labelledby="ingModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Exclusão</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="deleteIngrediente">
+                                                    <div class="modal-body">
+                                                        <p>Tem certeza que deseja excluir ingrediente?</p>
+                                                        <input type="hidden" class="form-control"  name="id" id="ingrediente">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Excluir</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </table>
                             <hr>
@@ -191,10 +232,32 @@
                                         <td>${func.nome}</td>
                                         <td>${func.email}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#funcModal" data-whatever="${func.id}" >Deletar</button>
                                             <a href="update?item=funcionario&&id=${func.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="funcModal" tabindex="-1" role="dialog" aria-labelledby="funcModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Exclusão</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="deleteFunc">
+                                                    <div class="modal-body">
+                                                        <p>Tem certeza que deseja excluir funcionario?</p>
+                                                        <input type="hidden" class="form-control"  name="id" id="funcionario">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Excluir</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </table>
                             <hr>
@@ -219,10 +282,32 @@
                                         <td>${usuario.email}</td>
                                         <td>${usuario.telefone}</td>
                                         <td>
-                                            <a href="#" class="btn btn-danger" role="button">Delete</a>
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#clienteModal" data-whatever="${usuario.id}" >Deletar</button>
                                             <a href="update?item=cliente&&id=${usuario.id}" class="btn btn-info" role="button">Edit</a>
                                         </td>
                                     </tr>
+                                    <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3 class="modal-title">Exclusão</h3>
+                                                    <button type="button" class="close" data-dismiss="modal">
+                                                        <span aria-hidden="true">x</span>
+                                                    </button>
+                                                </div>
+                                                <form method="post" action="deleteCliente">
+                                                    <div class="modal-body">
+                                                        <p>Tem certeza que deseja excluir cliente?</p>
+                                                        <input type="hidden" class="form-control"  name="id" id="cliente">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-primary">Excluir</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </c:forEach>
                             </table>
                             <hr>
@@ -232,15 +317,41 @@
             </div>
         </div>
 <script type="text/javascript">
-    $('#exampleModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var recipient = button.data('cod') // Extract info from data-* attributes
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    $('#pratoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever')
         var modal = $(this)
-        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    $('#mesaModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever')
+        var modal = $(this)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    $('#ingModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever')
+        var modal = $(this)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    $('#clienteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever')
+        var modal = $(this)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+    $('#funcModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever')
+        var modal = $(this)
+        modal.find('.modal-title').text(recipient)
+        modal.find('.modal-body input').val(recipient)
     })
 </script>
-
     </body>
 </html>

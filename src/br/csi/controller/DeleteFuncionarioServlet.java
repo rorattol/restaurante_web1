@@ -19,21 +19,18 @@ public class DeleteFuncionarioServlet  extends HttpServlet {
 
         String idFunc = req.getParameter("id");
         int id = Integer.parseInt(idFunc);
-        Funcionario func = new Funcionario();
 
         boolean retorno = new FuncionarioDAO().delete(id);
 
-        PrintWriter resposta = resp.getWriter();
-        if(retorno){
-
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+        RequestDispatcher disp;
+        if (retorno) {
+            req.setAttribute("sucesso", "Funcionario excluido com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-        }
-
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+        } else {
+            req.setAttribute("erro", "Não foi possivel deletar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

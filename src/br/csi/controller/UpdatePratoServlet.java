@@ -1,6 +1,8 @@
 package br.csi.controller;
 
+import br.csi.dao.IngredienteDAO;
 import br.csi.dao.PratoDAO;
+import br.csi.model.Ingrediente;
 import br.csi.model.Prato;
 
 import javax.servlet.RequestDispatcher;
@@ -11,12 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/updatePrato")
 public class UpdatePratoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        ArrayList<Ingrediente> ingredientesDB = new ArrayList<Ingrediente>();
+        ingredientesDB= new IngredienteDAO().getIngredientes();
 
         Prato prato = new Prato();
         String id1 = req.getParameter("id");
@@ -33,6 +39,18 @@ public class UpdatePratoServlet extends HttpServlet {
         prato.setCategoria(categoria);
         prato.setDescricao(descricao);
         prato.setPreco(preco);
+        Ingrediente ingrediente = new Ingrediente();
+        ArrayList<Ingrediente> ingredientesPrato = new ArrayList<Ingrediente>();
+
+        for (int i = 0; i < ingredientesDB.size(); i++) {
+            int id_ingrediente = 0;
+            if (req.getParameter(ingredientesDB.get(i).getNome())!= null){
+                id_ingrediente = Integer.parseInt(req.getParameter(ingredientesDB.get(i).getNome()));
+                ingrediente.setId(id_ingrediente);
+                ingredientesPrato.add(ingrediente);
+            }
+        }
+        prato.setIngredientes(ingredientesPrato);
 
         boolean retorno = new PratoDAO().update(prato);
 

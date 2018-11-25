@@ -22,20 +22,17 @@ public class DeleteClienteServlet extends HttpServlet {
         String idCliente = req.getParameter("id");
         int id = Integer.parseInt(idCliente);
 
-//        Cliente cli =new Cliente();
-
         boolean retorno = new ClienteDAO().delete(id);
 
-        PrintWriter resposta = resp.getWriter();
+        RequestDispatcher disp;
         if (retorno) {
-
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            req.setAttribute("sucesso", "Cliente excluido com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-
         } else {
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+            req.setAttribute("erro", "Não foi possivel deletar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 

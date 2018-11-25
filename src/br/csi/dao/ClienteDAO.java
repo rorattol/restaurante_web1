@@ -69,7 +69,6 @@ public class ClienteDAO {
         return null;
     }
 
-      
     public Cliente read(String email, String senha) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
 

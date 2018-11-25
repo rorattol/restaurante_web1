@@ -23,11 +23,9 @@
                 <i class="fa d-inline fa-lg fa-circle"></i>
                 <b> Sistema de reserva de restaurante</b>
             </a>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            </ul>
+            <%--<ul class="navbar-nav mx-auto">--%>
+                <%--<li class="nav-item"> <a class="nav-link" href="http://localhost:8080/restaurante_web1_war_exploded/WEB-INF/views/reservarMesa.jsp">Reservar Mesa</a> </li>--%>
+            <%--</ul>--%>
             <ul class="navbar-nav">
                 <li class="nav-item">${logado.nome}</li>
                 <li class="nav-item"><a class="nav-link text-primary" href="logout">Sair</a></li>
@@ -38,7 +36,7 @@
         < class="mx-auto col-lg-6 col-10">
             <h1>Editar Perfil</h1>
 
-            <form class="text-left" method="post" action="cadastrarUsuario">
+            <form class="text-left" method="post" action="cadastroUsuario">
                 <div class="form-group">
                     <label for="form16">Nome do Cliente</label>
 
@@ -57,10 +55,6 @@
                         <label for="form19">Alterar Senha(caso desejar manter a mesma senha, não altere esse campo)</label>
                         <input type="password" class="form-control" id="form19" value=">${logado.senha}" required>
                     </div>
-            <!--    <div class="form-group col-md-6">
-                        <label for="form20">Confirme sua Nova Senha</label>
-                        <input type="password" class="form-control" id="form20">
-                    </div>-->
                 </div>
                 <button type="submit" class="btn btn-primary">Editar</button>
             </form>

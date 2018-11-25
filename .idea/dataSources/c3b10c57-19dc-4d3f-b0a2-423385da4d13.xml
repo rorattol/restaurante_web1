@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="web_restaurante@localhost">
-  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.9">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.11">
     <root id="1">
       <ServerVersion>9.3.5</ServerVersion>
     </root>
     <database id="2" parent="1" name="exame_glenio_web1">
       <ObjectId>32947</ObjectId>
+      <Owner>postgres</Owner>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>12029</ObjectId>
       <Comment>default administrative connection database</Comment>
+      <Owner>postgres</Owner>
     </database>
     <database id="4" parent="1" name="rotas2018">
       <ObjectId>24576</ObjectId>
+      <Owner>postgres</Owner>
     </database>
     <database id="5" parent="1" name="web_restaurante">
       <ObjectId>32851</ObjectId>
+      <Owner>postgres</Owner>
       <IntrospectionStateNumber>2</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
@@ -32,26 +36,32 @@
     </role>
     <schema id="7" parent="5" name="information_schema">
       <ObjectId>11480</ObjectId>
+      <Owner>postgres</Owner>
     </schema>
     <schema id="8" parent="5" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
+      <Owner>postgres</Owner>
     </schema>
     <schema id="9" parent="5" name="pg_temp_1">
       <ObjectId>11215</ObjectId>
+      <Owner>postgres</Owner>
     </schema>
     <schema id="10" parent="5" name="pg_toast">
       <ObjectId>99</ObjectId>
       <Comment>reserved schema for TOAST tables</Comment>
+      <Owner>postgres</Owner>
     </schema>
     <schema id="11" parent="5" name="pg_toast_temp_1">
       <ObjectId>11216</ObjectId>
+      <Owner>postgres</Owner>
     </schema>
     <schema id="12" parent="5" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-10-13.17:54:22.408</IntrospectionTimestamp>
-      <IntrospectionStateNumber>716</IntrospectionStateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionTimestamp>2018-11-25.16:01:01.549</IntrospectionTimestamp>
+      <IntrospectionStateNumber>813</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -127,7 +137,8 @@
     </table>
     <table id="26" parent="12" name="ingrediente">
       <ObjectId>32894</ObjectId>
-      <StateNumber>716</StateNumber>
+      <Owner>postgres</Owner>
+      <StateNumber>813</StateNumber>
     </table>
     <table id="27" parent="12" name="mesa">
       <ObjectId>32923</ObjectId>
@@ -139,11 +150,13 @@
     </table>
     <table id="29" parent="12" name="prato">
       <ObjectId>32886</ObjectId>
-      <StateNumber>716</StateNumber>
+      <Owner>postgres</Owner>
+      <StateNumber>813</StateNumber>
     </table>
     <table id="30" parent="12" name="prato_ingrediente">
-      <ObjectId>32900</ObjectId>
-      <StateNumber>716</StateNumber>
+      <ObjectId>32982</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>813</StateNumber>
     </table>
     <column id="31" parent="24" name="id_cliente">
       <Position>1</Position>
@@ -400,26 +413,27 @@
     <column id="70" parent="30" name="id_prato">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>716</StateNumber>
+      <StateNumber>813</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="71" parent="30" name="id_ingrediente">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
-      <StateNumber>716</StateNumber>
+      <StateNumber>813</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <foreign-key id="72" parent="30" name="prato_ingrediente_id_prato_fkey">
-      <ObjectId>32903</ObjectId>
+      <ObjectId>32985</ObjectId>
       <ColNames>id_prato</ColNames>
       <RefTableId>32886</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>prato</RefTableName>
       <RefKeyName>prato_pkey</RefKeyName>
       <RefColNames>id_prato</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <foreign-key id="73" parent="30" name="prato_ingrediente_id_ingrediente_fkey">
-      <ObjectId>32908</ObjectId>
+      <ObjectId>32990</ObjectId>
       <ColNames>id_ingrediente</ColNames>
       <RefTableId>32894</RefTableId>
       <RefColPositions>1</RefColPositions>

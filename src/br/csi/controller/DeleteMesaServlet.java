@@ -20,22 +20,18 @@ public class DeleteMesaServlet extends HttpServlet {
 
         String idMesa = req.getParameter("id");
         int id = Integer.parseInt(idMesa);
-        Mesa mesa = new Mesa();
 
         boolean retorno = new MesaDAO().delete(id);
 
-        PrintWriter resposta = resp.getWriter();
         RequestDispatcher disp;
-
-        if(retorno) {
-
+        if (retorno) {
+            req.setAttribute("sucesso", "Mesa excluida com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-        }
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+        } else {
+            req.setAttribute("erro", "Não foi possivel deletar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

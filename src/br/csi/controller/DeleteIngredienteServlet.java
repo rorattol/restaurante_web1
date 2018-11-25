@@ -23,17 +23,15 @@ public class DeleteIngredienteServlet  extends HttpServlet {
 
         boolean retorno = new IngredienteDAO().delete(id);
 
-        PrintWriter resposta = resp.getWriter();
-        if(retorno){
-
-            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+        RequestDispatcher disp;
+        if (retorno) {
+            req.setAttribute("sucesso", "Ingrediente excluido com sucesso");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
             disp.forward(req, resp);
-        }
-
-        else{
-            resposta.println("<html><body>");
-            resposta.println("<strong>ERRO</strong>");
-            resposta.println("</body></html>");
+        } else {
+            req.setAttribute("erro", "Não foi possivel deletar");
+            disp = req.getRequestDispatcher("/WEB-INF/views/dashboard.jsp");
+            disp.forward(req, resp);
         }
     }
 }

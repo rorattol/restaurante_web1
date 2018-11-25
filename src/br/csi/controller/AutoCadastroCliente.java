@@ -30,8 +30,6 @@ public class AutoCadastroCliente extends HttpServlet {
         String email = req.getParameter("email");
         String telefone = req.getParameter("telefone");
 
-        Cliente cli = new Cliente(); //talvez nao necessario
-
         boolean retorno = new ClienteDAO().create(nome, email, senha, telefone);
 
         RequestDispatcher disp;

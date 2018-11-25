@@ -31,14 +31,13 @@ public class AutoUpdateCliente extends HttpServlet {
         String telefone = req.getParameter("telefone");
         int id = Integer.parseInt(id1);
 
-
         Cliente cli = new Cliente(id, nome, senha, email, telefone);
 
         boolean retorno = new ClienteDAO().update(cli);
 
         RequestDispatcher disp;
         if (retorno) {
-            req.setAttribute("sucesso", "Cadastro tualizado com sucesso");
+            req.setAttribute("sucesso", "Cadastro atualizado com sucesso");
             disp = req.getRequestDispatcher("/WEB-INF/views/reservarMesa.jsp");
             disp.forward(req, resp);
 

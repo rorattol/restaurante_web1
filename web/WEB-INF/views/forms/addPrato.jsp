@@ -27,9 +27,9 @@
                 <b> Sistema de reserva de restaurante</b>
             </a>
             <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"></a></li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">${logado.nome}</li>
