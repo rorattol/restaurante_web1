@@ -3,6 +3,8 @@ package br.csi.dao;
 
 import br.csi.model.Ingrediente;
 import br.csi.model.Prato;
+
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -77,6 +79,18 @@ public class PratoDAO {
                 p.setDescricao(rs.getString("descricao_prato"));
                 p.setPreco(rs.getFloat("preco_prato"));
             }
+            sql = "SELECT pi.id_ingrediente,ingrediente.nom_ingrediente FROM prato_ingrediente pi, ingrediente WHERE pi.id_prato = ? AND pi.id_ingrediente = ingrediente.id_ingrediente";
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, id);
+            rs = pre.executeQuery();
+            ArrayList<Ingrediente> listaIngredientes = new ArrayList<Ingrediente>();
+            while (rs.next()) {
+                Ingrediente ing = new Ingrediente();
+                ing.setId(rs.getInt("id_ingrediente"));
+                ing.setNome(rs.getString("nom_ingrediente"));
+                listaIngredientes.add(ing);
+            }
+            p.setIngredientes(listaIngredientes);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -126,7 +140,10 @@ public class PratoDAO {
         }
         return retorno;
     }
-    
+
+
+
+
     public ArrayList<Prato> getPratos() {
         
         ArrayList<Prato> pratos = new ArrayList<Prato>();

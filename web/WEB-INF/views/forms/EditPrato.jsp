@@ -58,11 +58,20 @@
                             <input type="text" class="form-control" id="form18" name="descricao" value="${prato.descricao}">
                         </div>
                         <div class="form-group">
-                            <label for="form21">Ingredientes</label>
+                            <%--<label for="form21">Ingredientes</label>--%>
                             <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
-                                <div class="form-check" >
-                                    <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
-                                </div>
+                                <c:forEach var="ingrediente" items="${prato.ingredientes}">
+                                    <c:if test="${ingrediente.nome == ing.nome}">
+                                        <div class="form-check" >
+                                            <input class="form-check-input" type="checkbox" checked id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                                <c:if test="${ingrediente.nome != ing.nome}">
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
+                                    </div>
+                                </c:if>
                             </c:forEach>
                         </div>
                         <div class="form-row">
