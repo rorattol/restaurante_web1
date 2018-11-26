@@ -20,7 +20,6 @@ public class Prato {
     private String categoria;
     private float preco;
 
-
     public Prato(String nome, String descricao, String categoria, float preco){
         this.nome = nome;
         this.descricao = descricao;

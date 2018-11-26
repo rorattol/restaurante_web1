@@ -30,8 +30,6 @@ public class CadastrarClienteServlet extends HttpServlet {
         String email = req.getParameter("email");
         String telefone = req.getParameter("telefone");
 
-        Cliente cli = new Cliente();
-
         boolean retorno = new ClienteDAO().create(nome, email, senha, telefone);
 
         RequestDispatcher disp;

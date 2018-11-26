@@ -37,6 +37,7 @@ public class Atualiza extends HttpServlet {
             Prato prato = new PratoDAO().read(Integer.parseInt(id));
 
             req.setAttribute("prato", prato);
+
             dispatcher = req.getRequestDispatcher("WEB-INF/views/forms/EditPrato.jsp");
             dispatcher.forward(req, resp);
         }

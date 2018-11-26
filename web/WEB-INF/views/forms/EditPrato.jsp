@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
         <link rel="stylesheet" href="theme.css" type="text/css">
-        <title>Title</title>
+        <title>Restaurante</title>
     </head>
     <body>
         <div class="container">
@@ -42,7 +42,6 @@
                 <div class="mx-auto col-lg-6 col-10">
                     <h1>Editar Prato</h1>
                     <jsp:useBean id="ingredienteDAO" class="br.csi.dao.IngredienteDAO"></jsp:useBean>
-
                     <form class="text-left" method="post" action="updatePrato">
                         <input type="hidden" name="id" value="${prato.id}">
                         <div class="form-group">
@@ -58,20 +57,16 @@
                             <input type="text" class="form-control" id="form18" name="descricao" value="${prato.descricao}">
                         </div>
                         <div class="form-group">
-                            <%--<label for="form21">Ingredientes</label>--%>
+
+                        <label for="form21">Ingredientes</label>
                             <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
-                                <c:forEach var="ingrediente" items="${prato.ingredientes}">
-                                    <c:if test="${ingrediente.nome == ing.nome}">
-                                        <div class="form-check" >
-                                            <input class="form-check-input" type="checkbox" checked id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
-                                        </div>
-                                    </c:if>
-                                </c:forEach>
-                                <c:if test="${ingrediente.nome != ing.nome}">
-                                    <div class="form-check" >
-                                        <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
-                                    </div>
-                                </c:if>
+                                <div class="form-check" >
+                                    <input class="form-check-input" type="checkbox" id="form21"
+                                    <c:forEach var="ingrediente" items="${prato.ingredientes}">
+                                           <c:if test="${ingrediente.nome == ing.nome}">checked </c:if>
+                                    </c:forEach>
+                                           name="ingredientes" value="${ing.id}"> ${ing.nome} </br>
+                                </div>
                             </c:forEach>
                         </div>
                         <div class="form-row">

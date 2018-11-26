@@ -25,34 +25,24 @@ public class CadastrarPratoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-/**
- * ingredientesDB sao os ingredientes que vem do banco para fazer a comparaçao do que foi selecionado no jsp
- */
-        ArrayList<Ingrediente> ingredientesDB = new ArrayList<Ingrediente>();
-         ingredientesDB= new IngredienteDAO().getIngredientes();
-
         String nome = req.getParameter("nome");
         String categoria = req.getParameter("categoria");
         String descricao = req.getParameter("descricao");
         String preco1 = req.getParameter("preco");
+        String[] ingredientes = null;
         Float preco = Float.parseFloat(preco1);
 
         Prato prato = new Prato(nome, categoria, descricao, preco);
 
-        /**
-         * ids são dos ingredientes selecionados no jsp
-         */
-        Ingrediente ingrediente = new Ingrediente();
         ArrayList<Ingrediente> ingredientesPrato = new ArrayList<Ingrediente>();
 
-        for (int i = 0; i < ingredientesDB.size(); i++) {
-            int id_ingrediente = 0;
-            if (req.getParameter(ingredientesDB.get(i).getNome())!= null){
-                id_ingrediente = Integer.parseInt(req.getParameter(ingredientesDB.get(i).getNome()));
-                ingrediente.setId(id_ingrediente);
-                ingredientesPrato.add(ingrediente);
-            }
+        ingredientes = req.getParameterValues("ingredientes");
+        for (String id_ingrediente: ingredientes) {
+            Ingrediente ingrediente = new Ingrediente();
+            ingrediente.setId(Integer.parseInt(id_ingrediente));
+            ingredientesPrato.add(ingrediente);
         }
+
         prato.setIngredientes(ingredientesPrato);
 
         boolean retorno = new PratoDAO().create(prato);

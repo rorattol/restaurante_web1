@@ -10,8 +10,7 @@ package br.csi.model;
  * @author Lucas
  */
 public class Ingrediente {
-    
-    
+
     private int id;
     private String nome;
 
@@ -30,5 +29,4 @@ public class Ingrediente {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
 }

@@ -21,35 +21,36 @@ public class UpdatePratoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        ArrayList<Ingrediente> ingredientesDB = new ArrayList<Ingrediente>();
-        ingredientesDB= new IngredienteDAO().getIngredientes();
 
         Prato prato = new Prato();
+
         String id1 = req.getParameter("id");
         String nome = req.getParameter("nome");
         String categoria = req.getParameter("categoria");
         String descricao = req.getParameter("descricao");
+        String[] ingredientes = null;
+
         String preco1 = req.getParameter("preco");
 
         int id = Integer.parseInt(id1);
         float preco = Float.parseFloat(preco1);
 
+        ArrayList<Ingrediente> ingredientesPrato = new ArrayList<Ingrediente>();
+
+        ingredientes = req.getParameterValues("ingredientes");
+        for (String id_ingrediente: ingredientes) {
+            Ingrediente ingrediente = new Ingrediente();
+            ingrediente.setId(Integer.parseInt(id_ingrediente));
+            ingredientesPrato.add(ingrediente);
+        }
+
         prato.setId(id);
         prato.setNome(nome);
         prato.setCategoria(categoria);
         prato.setDescricao(descricao);
+        prato.setIngredientes(ingredientesPrato);
         prato.setPreco(preco);
-        Ingrediente ingrediente = new Ingrediente();
-        ArrayList<Ingrediente> ingredientesPrato = new ArrayList<Ingrediente>();
 
-        for (int i = 0; i < ingredientesDB.size(); i++) {
-            int id_ingrediente = 0;
-            if (req.getParameter(ingredientesDB.get(i).getNome())!= null){
-                id_ingrediente = Integer.parseInt(req.getParameter(ingredientesDB.get(i).getNome()));
-                ingrediente.setId(id_ingrediente);
-                ingredientesPrato.add(ingrediente);
-            }
-        }
         prato.setIngredientes(ingredientesPrato);
 
         boolean retorno = new PratoDAO().update(prato);

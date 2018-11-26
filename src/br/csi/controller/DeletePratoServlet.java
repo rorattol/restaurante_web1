@@ -23,7 +23,6 @@ public class DeletePratoServlet  extends HttpServlet {
         String idPrato = req.getParameter("id");
         int id = Integer.parseInt(idPrato);
 
-
         boolean retorno = new PratoDAO().delete(id);
 
         RequestDispatcher disp;

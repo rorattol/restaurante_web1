@@ -85,7 +85,7 @@ public class FuncionarioDAO {
         }
 
         return retorno;
-    }//PRONTO
+    }
 
     public boolean delete(int id) {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
@@ -99,7 +99,7 @@ public class FuncionarioDAO {
             ex.printStackTrace();
         }
         return retorno;
-    }//PRONTO
+    }
 
     public ArrayList<Funcionario> getFuncionarios() {
 

@@ -43,9 +43,7 @@ public class PratoDAO {
             pre.execute();
             rs = pre.getGeneratedKeys();
             rs.next();
-
             if (rs.getInt(1) > 0) {
-                
                 for(Ingrediente ing : prato.getIngredientes()){
                     sql = "INSERT INTO prato_ingrediente (id_prato, id_ingrediente) values (?, ?)";
                     pre = conn.prepareStatement(sql);
@@ -53,7 +51,6 @@ public class PratoDAO {
                     pre.setInt(2, ing.getId());
                     pre.execute();
                 }
-                
             }
             conn.commit();
             retorno = true;
@@ -101,28 +98,32 @@ public class PratoDAO {
         try (Connection conn = new ConectaDB_postgres().getConexao()) {
             conn.setAutoCommit(false);
             sql = "UPDATE prato SET nom_prato = ?, categoria_prato = ?, descricao_prato = ?, preco_prato = ? WHERE id_prato = ?;";
-            pre = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pre = conn.prepareStatement(sql);
             pre.setString(1, prato.getNome());
             pre.setString(2, prato.getCategoria());
             pre.setString(3, prato.getDescricao());
             pre.setFloat(4, prato.getPreco());
             pre.setInt(5, prato.getId());
             pre.execute();
-            rs = pre.getGeneratedKeys();
-            rs.next();
-            if (rs.getInt(1) > 0) {
 
-                for(Ingrediente ing : prato.getIngredientes()){
-                    sql = "UPDATE prato_ingrediente SET id_prato = ?, id_ingrediente = ?";
-                    pre = conn.prepareStatement(sql);
-                    pre.setInt(1, rs.getInt(1));
-                    pre.setInt(2, ing.getId());
-                    pre.execute();
-                }
+            sql = "DELETE FROM prato_ingrediente WHERE id_prato = ? ";
+            pre = conn.prepareStatement(sql);
+            pre.setInt(1, prato.getId());
+            pre.execute();
+            for(Ingrediente ing : prato.getIngredientes()){
+                sql = "INSERT INTO prato_ingrediente (id_prato, id_ingrediente) values (?, ?)";
+                pre = conn.prepareStatement(sql);
+                pre.setInt(1, prato.getId());
+                pre.setInt(2, ing.getId());
+                pre.execute();
             }
             conn.commit();
+            retorno = true;
         } catch (SQLException ex) {
             ex.printStackTrace();
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return retorno;
     }
@@ -140,9 +141,6 @@ public class PratoDAO {
         }
         return retorno;
     }
-
-
-
 
     public ArrayList<Prato> getPratos() {
         
@@ -169,5 +167,4 @@ public class PratoDAO {
         }
         return pratos;
     }
-
 }

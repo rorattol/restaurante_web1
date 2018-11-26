@@ -28,8 +28,6 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String nome = req.getParameter("nome");
         String email = req.getParameter("email");
         String senha = req.getParameter("senha");
-
-        Funcionario func = new Funcionario();  //talvez nao necessario
         
         boolean retorno = new FuncionarioDAO().create(nome, email, senha);
 

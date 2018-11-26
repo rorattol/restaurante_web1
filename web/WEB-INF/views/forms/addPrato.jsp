@@ -62,7 +62,7 @@
                     <label for="form21">Ingredientes</label>
                     <c:forEach var="ing" items="${ingredienteDAO.ingredientes}">
                         <div class="form-check" >
-                            <input class="form-check-input" type="checkbox" id="form21" name="${ing.nome}" value="${ing.id}"> ${ing.nome} </br>
+                            <input class="form-check-input" type="checkbox" id="form21" name="ingredientes" value="${ing.id}"> ${ing.nome} </br>
                         </div>
                     </c:forEach>
                 </div>
